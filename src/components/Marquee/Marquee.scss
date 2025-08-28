@@ -1,0 +1,174 @@
+@import '../../styles/variables';
+@import '../../styles/fonts';
+
+.marquee {
+	background: $black;
+	border-top: 2px solid $main-toxic;
+	border-bottom: 2px solid $main-toxic;
+	padding: 20px 0;
+	overflow: hidden;
+	position: relative;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100px;
+		z-index: 2;
+		pointer-events: none;
+	}
+
+	&::before {
+		left: 0;
+		background: linear-gradient(90deg, $black 0%, transparent 100%);
+	}
+
+	&::after {
+		right: 0;
+		background: linear-gradient(270deg, $black 0%, transparent 100%);
+	}
+
+	@media (min-width: $breakpoint-md) {
+		padding: 25px 0;
+	}
+
+	@media (min-width: $breakpoint-lg) {
+		padding: 30px 0;
+	}
+
+	&__track {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+		animation: marquee 20s linear infinite;
+		width: max-content;
+
+		@media (min-width: $breakpoint-md) {
+			gap: 60px;
+			animation-duration: 25s;
+		}
+
+		@media (min-width: $breakpoint-lg) {
+			gap: 80px;
+			animation-duration: 30s;
+		}
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		white-space: nowrap;
+		gap: 40px;
+		flex-shrink: 0;
+
+		@media (min-width: $breakpoint-md) {
+			gap: 60px;
+		}
+
+		@media (min-width: $breakpoint-lg) {
+			gap: 80px;
+		}
+	}
+
+	&__text {
+		font-family: $font-accent;
+		font-weight: 900;
+		font-size: 28px;
+		color: $main-toxic;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: -20px;
+			right: -20px;
+			height: 2px;
+			background: linear-gradient(90deg,
+				transparent 0%,
+				$dynamic-pink 20%,
+				$main-toxic 50%,
+				$dynamic-pink 80%,
+				transparent 100%);
+			transform: translateY(-50%);
+			opacity: 0.6;
+		}
+
+		@media (min-width: $breakpoint-md) {
+			font-size: 36px;
+			letter-spacing: 4px;
+		}
+
+		@media (min-width: $breakpoint-lg) {
+			font-size: 42px;
+			letter-spacing: 5px;
+		}
+
+		@media (min-width: $breakpoint-xl) {
+			font-size: 48px;
+			letter-spacing: 6px;
+		}
+	}
+
+	&__logo {
+		height: 40px;
+		width: auto;
+		transition: all 0.3s ease;
+
+		&:hover {
+			filter: 
+				drop-shadow(0 0 15px rgba(203, 254, 16, 0.8))
+				drop-shadow(0 0 25px rgba(232, 86, 255, 0.5))
+				drop-shadow(0 0 35px rgba(203, 254, 16, 0.3));
+			transform: scale(1.1);
+		}
+
+		@media (min-width: $breakpoint-md) {
+			height: 50px;
+		}
+
+		@media (min-width: $breakpoint-lg) {
+			height: 60px;
+		}
+
+		@media (min-width: $breakpoint-xl) {
+			height: 70px;
+		}
+	}
+}
+
+@keyframes marquee {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+//.marquee:hover {
+//	.marquee__text {
+//		text-shadow:
+//			0 0 15px rgba(203, 254, 16, 0.9),
+//			0 0 25px rgba(203, 254, 16, 0.7),
+//			0 0 35px rgba(203, 254, 16, 0.5),
+//			0 0 45px rgba(203, 254, 16, 0.3);
+//
+//		&::before {
+//			opacity: 1;
+//			background: linear-gradient(90deg,
+//				transparent 0%,
+//				$dynamic-pink 15%,
+//				$main-toxic 30%,
+//				$dynamic-pink 45%,
+//				$main-toxic 55%,
+//				$dynamic-pink 70%,
+//				$main-toxic 85%,
+//				transparent 100%);
+//		}
+//	}
+//}

@@ -1,0 +1,187 @@
+@import '../../styles/variables';
+@import '../../styles/fonts';
+
+.about {
+	overflow: hidden;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: relative;
+		min-height: calc(100vh - var(--header-height));
+		z-index: 2;
+
+		@media (min-width: $breakpoint-md) {
+			flex-direction: row;
+			align-items: center;
+			gap: 50px;
+		}
+	}
+
+	&__title {
+		font-family: $font-accent;
+		font-weight: 900;
+		font-size: 32px;
+		line-height: 1.1;
+		color: $white;
+		text-align: center;
+		margin-bottom: 60px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+
+		@media (min-width: $breakpoint-md) {
+			width: 50%;
+			font-size: 42px;
+			margin-bottom: 80px;
+		}
+
+		@media (min-width: $breakpoint-lg) {
+			font-size: 52px;
+			margin-bottom: 100px;
+			letter-spacing: 2px;
+		}
+
+		& .accent-block {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__swiper-container {
+		position: relative;
+		width: 100%;
+
+		@media (min-width: $breakpoint-md) {
+			width: 40%;
+		}
+	}
+
+	&__swiper {
+		overflow: visible;
+		padding: 20px 0 60px;
+
+		@media (min-width: $breakpoint-md) {
+			padding: 20px 0 80px;
+		}
+	}
+
+	&__item {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__item-inner {
+		position: relative;
+		background: $black;
+		border: 2px solid transparent;
+		padding: 60px 20px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	// Специфичные стили для каждого слайда
+	.swiper-slide:nth-child(1) .about__item-inner {
+		border-color: $main-toxic;
+
+		.about__heading {
+			color: $main-toxic;
+			text-shadow: 0 0 10px rgba(203, 254, 16, 0.5);
+		}
+
+		.about__icon {
+			color: $main-toxic;
+		}
+	}
+
+	.swiper-slide:nth-child(2) .about__item-inner {
+		border-color: $dynamic-pink;
+
+		.about__heading {
+			color: $dynamic-pink;
+			text-shadow: 0 0 10px rgba(232, 86, 255, 0.5);
+		}
+
+		.about__icon {
+			color: $dynamic-pink;
+		}
+	}
+
+	.swiper-slide:nth-child(3) .about__item-inner {
+		border-color: $main-purple;
+
+		.about__heading {
+			color: $main-purple;
+			text-shadow: 0 0 10px rgba(73, 17, 92, 0.6);
+		}
+
+		.about__icon {
+			color: $main-purple;
+		}
+	}
+
+	&__icon {
+		margin-bottom: 20px;
+		width: 80px;
+		height: 80px;
+		transition: all 0.4s ease;
+		filter: drop-shadow(0 0 10px currentColor);
+		position: relative;
+		z-index: 2;
+
+		@media (min-width: $breakpoint-lg) {
+			margin-bottom: 30px;
+			width: 100px;
+			height: 100px;
+		}
+	}
+
+	&__heading {
+		font-family: $font-accent;
+		font-weight: 900;
+		font-size: 24px;
+		line-height: 1.2;
+		margin-bottom: 16px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		transition: all 0.4s ease;
+		position: relative;
+		z-index: 2;
+		flex-shrink: 0;
+
+		@media (min-width: $breakpoint-md) {
+			font-size: 26px;
+			margin-bottom: 20px;
+		}
+
+		@media (min-width: $breakpoint-lg) {
+			font-size: 27px;
+			letter-spacing: 2px;
+		}
+	}
+
+	&__text {
+		font-family: $font-primary;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.5;
+		color: $white;
+		position: relative;
+		z-index: 2;
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+
+		@media (min-width: $breakpoint-md) {
+			font-size: 18px;
+		}
+
+		@media (min-width: $breakpoint-lg) {
+			font-size: 20px;
+			line-height: 1.6;
+		}
+	}
+}

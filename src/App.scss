@@ -1,0 +1,23 @@
+@import './styles/variables';
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+// Smooth scrolling для всего документа
+html {
+  scroll-behavior: smooth;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}

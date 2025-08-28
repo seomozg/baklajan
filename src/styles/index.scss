@@ -1,0 +1,89 @@
+@import 'fonts';
+@import 'variables';
+@import 'animations';
+
+// Базовые стили
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+  font-family: $font-primary;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $white;
+  background-color: $black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.pattern {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	background: url("../../public/images/patterns/pattern1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+	z-index: -10;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 12px;
+  
+  @media (min-width: $breakpoint-sm) {
+    padding: 0 14px;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 26px;
+  }
+}
+
+
+.accent-block {
+	position: relative;
+	display: inline-block;
+	width: fit-content;
+	font-weight: 900;
+	font-family: $font-accent;
+
+	&::before {
+		content: "";
+    position: absolute;
+		top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: -1;
+    transform: rotate(0) skew(-20deg);
+	}
+
+	&--yellow {
+		color: $black;
+
+		&::before {
+			background-color: $main-toxic;
+		}
+	}
+
+	&--pink {
+		color: $black;
+
+		&::before {
+			background-color: $dynamic-pink;
+		}
+	}
+}
