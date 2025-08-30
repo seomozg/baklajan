@@ -1,51 +1,61 @@
 import './Marquee.scss';
 import { useTranslation } from '../../hooks/useTranslation';
-import useAnimation from '../../hooks/useAnimation';
+import useMarqueeHeight from "../../hooks/useMarqueeHeight";
 
 const Marquee = ({ content = "trafficWorldwide" }) => {
+	const { marqueeRef } = useMarqueeHeight();
 	const { t } = useTranslation();
 	
-	const MarqueeContent = () => (
-		<>
-			<span className="marquee__text">{t(`marquee.${content}`)}</span>
-			<img 
-				src="/images/logos/logo-colorful-mob.png" 
-				alt="Baklajan" 
-				className="marquee__logo"
-			/>
-			<span className="marquee__text">{t(`marquee.${content}`)}</span>
-			<img 
-				src="/images/logos/logo-colorful-mob.png" 
-				alt="Baklajan" 
-				className="marquee__logo"
-			/>
-			<span className="marquee__text">{t(`marquee.${content}`)}</span>
-			<img 
-				src="/images/logos/logo-colorful-mob.png" 
-				alt="Baklajan" 
-				className="marquee__logo"
-			/>
-			<span className="marquee__text">{t(`marquee.${content}`)}</span>
-			<img 
-				src="/images/logos/logo-colorful-mob.png" 
-				alt="Baklajan" 
-				className="marquee__logo"
-			/>
-			<span className="marquee__text">{t(`marquee.${content}`)}</span>
-			<img 
-				src="/images/logos/logo-colorful-mob.png" 
-				alt="Baklajan" 
-				className="marquee__logo"
-			/>
-		</>
-	);
+	const MarqueeContent = () => {
+		const text = t(`marquee.${content}`);
+		const isObject = typeof text === 'object';
 
-	const marqueeAnimation = useAnimation({ delay: 0, threshold: 0.3 });
+		const renderContent = () => {
+			if (isObject) {
+				return (
+					<>
+						<span className="marquee__text">{text.part1}</span>
+						<img 
+							src="/images/logos/logo-colorful-mob.png" 
+							alt="Baklajan" 
+							className="marquee__logo"
+						/>
+						<span className="marquee__text">{text.part2}</span>
+						<img 
+							src="/images/logos/logo-colorful-mob.png" 
+							alt="Baklajan" 
+							className="marquee__logo"
+						/>
+					</>
+				);
+			}
+			return (
+				<>
+					<span className="marquee__text">{text}</span>
+					<img 
+						src="/images/logos/logo-colorful-mob.png" 
+						alt="Baklajan" 
+						className="marquee__logo"
+					/>
+				</>
+			);
+		};
+
+		return (
+			<>
+				{renderContent()}
+				{renderContent()}
+				{renderContent()}
+				{renderContent()}
+				{renderContent()}
+			</>
+		);
+	};
 
 	return (
 		<div 
-			ref={marqueeAnimation.ref}
-			className={`marquee marquee-animated ${marqueeAnimation.isVisible ? 'visible' : ''}`}
+			ref={marqueeRef}
+			className="marquee"
 		>
 			<div className="marquee__track">
 				<div className="marquee__content">

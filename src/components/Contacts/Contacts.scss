@@ -2,6 +2,7 @@
 @import '../../styles/fonts';
 
 .contacts {
+	opacity: 1;
 	padding: 60px 0;
 	position: relative;
 
@@ -25,150 +26,110 @@
 		display: flex;
 		flex-direction: column;
 		padding: 40px 30px;
-		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: $background-purple;
+		border: 1px solid $main-toxic;
 		overflow: hidden;
+
+		&:nth-child(2) {
+			border-color: $dynamic-pink;
+
+			& .contacts__title {
+				color: $dynamic-pink;
+			}
+		}
 	}
 
 	&__title {
+		@include h3;
+
 		font-family: $font-accent;
 		font-weight: 900;
-		font-size: 24px;
-		line-height: 1.2;
 		color: $main-toxic;
 		text-transform: uppercase;
-		letter-spacing: 1.5px;
 		margin-bottom: 24px;
-		position: relative;
-
-		@media (min-width: $breakpoint-md) {
-			font-size: 28px;
-			margin-bottom: 30px;
-		}
-
-		@media (min-width: $breakpoint-lg) {
-			font-size: 32px;
-			margin-bottom: 36px;
-		}
 	}
 
 	&__text {
+		@include text-small;
+
 		font-family: $font-primary;
-		font-size: 16px;
-		line-height: 1.6;
 		color: $white;
 		margin-bottom: auto;
-
-		@media (min-width: $breakpoint-md) {
-			font-size: 18px;
-		}
-
-		@media (min-width: $breakpoint-lg) {
-			font-size: 20px;
-		}
 	}
 
-	&__item button {
-		position: relative;
-		display: inline-block;
-		margin-top: 20px;
+	&__btn {
+		@include h3;
+
+		margin-top: 24px;
 		margin-left: 10px;
-		width: fit-content;
-		font-size: 30px;
-		font-weight: 900;
-		font-family: $font-accent;
 		color: $black;
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
-
-		@media (min-width: $breakpoint-lg) {
-			font-size: 40px;
-		}
-
-		&::before {
-			content: "";
-			position: absolute;
-			top: -10%;
-			left: -10%;
-			width: 120%;
-			height: 120%;
-			z-index: -1;
-			background-color: $main-toxic;
-			transform: rotate(0) skew(-20deg);
-		}
+		z-index: 2;
 	}
 }
 
 // Стили для модального окна
-.modal-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, 0.8);
-	backdrop-filter: blur(10px);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 1000;
-	animation: fadeIn 0.3s ease-out;
+.modal {
+	&__overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.8);
+		backdrop-filter: blur(10px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 1000;
+		animation: fadeIn 0.3s ease-out;
 
-	@media (max-width: $breakpoint-sm) {
-		padding: 20px;
+		@media (max-width: $breakpoint-sm) {
+			padding: 20px;
+		}
 	}
-}
 
-.modal-content {
-	background: rgba(10, 7, 24, 0.95);
-	backdrop-filter: blur(20px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	padding: 40px;
-	width: 100%;
-	max-width: 500px;
-	max-height: 90vh;
-	overflow-y: auto;
-	position: relative;
-	animation: slideIn 0.3s ease-out;
-
-	@media (max-width: $breakpoint-sm) {
+	&__content {
+		background: $black;
 		padding: 30px 20px;
-		border-radius: 15px;
+		width: 100%;
+		max-width: 500px;
+		max-height: 90vh;
+		overflow-y: auto;
+		animation: slideIn 0.3s ease-out;
 	}
-}
 
-.modal-close {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	background: none;
-	border: none;
-	color: rgba(255, 255, 255, 0.7);
-	cursor: pointer;
-	padding: 5px;
-	border-radius: 50%;
-	transition: all 0.3s ease;
-	
-	&:hover {
+	&__close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background: none;
+		border: none;
+		color: $white;
+		cursor: pointer;
+		padding: 5px;
+		transition: all 0.3s ease;
+
+		&:hover {
+			color: $main-toxic;
+		}
+	}
+
+	&__title {
+		@include h2;
+
+		margin-bottom: 12px;
+		font-family: $font-accent;
+		font-weight: 900;
 		color: $main-toxic;
-		background: rgba(255, 255, 255, 0.1);
-	}
-}
+		text-align: center;
+		text-transform: uppercase;
 
-.modal-title {
-	font-family: $font-accent;
-	font-weight: 900;
-	font-size: 32px;
-	color: $main-toxic;
-	text-transform: uppercase;
-	text-align: center;
-	margin-bottom: 30px;
-	letter-spacing: 2px;
-
-	@media (max-width: $breakpoint-sm) {
-		font-size: 24px;
-		margin-bottom: 25px;
+		@media (min-width: $breakpoint-md) {
+			margin-bottom: 16px;
+		}
 	}
 }
 
@@ -182,6 +143,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+	position: relative;
 
 	label {
 		font-family: $font-accent;
@@ -221,6 +183,12 @@
 		resize: vertical;
 		min-height: 100px;
 		font-family: $font-primary;
+	}
+
+	.form-error {
+		color: #ff4444;
+		font-size: 12px;
+		margin-top: 4px;
 	}
 }
 

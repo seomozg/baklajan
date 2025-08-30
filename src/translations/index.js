@@ -12,7 +12,7 @@ const translations = {
 
 		// Hero
 		hero: {
-			title: 'Juicy Media Buying.',
+			title: 'Juicy Media Buying',
 			subtitle: "We don't push campaigns –",
 			subtitleBreak: 'we push limits.'
 		},
@@ -20,7 +20,10 @@ const translations = {
 		// Marquee
 		marquee: {
 			trafficWorldwide: 'Traffic worldwide',
-			killerResults: 'Killer Results'
+			killerResults: {
+				part1: 'Killer Results',
+				part2: 'Unlimited Traffic'
+			}
 		},
 
 		// Statistics
@@ -54,7 +57,7 @@ const translations = {
 		about: {
 			title: {
 				part1: 'Media buying,',
-				part2: 'powered by infrastructure.'
+				part2: 'powered by infrastructure'
 			},
 			cards: {
 				creative: {
@@ -69,7 +72,8 @@ const translations = {
 					title: 'IT-ecosystem',
 					text: 'In-house infra that grows like yeast dough: fast, flexible, battle-tested. Ready for any traffic storm.'
 				}
-			}
+			},
+			text: 'We drive the kind of users that pay off fast and keep the growth rolling. Long game? We’re in — tailoring traffic that fits you.'
 		},
 
 		// Contacts
@@ -82,7 +86,7 @@ const translations = {
 			mediaBuyers: {
 				title: 'MEDIA BUYERS AND TEAMS',
 				text: 'You bring the drive, we bring the kitchen: infra, tools, and know-how to take your growth from "raw" to "well-done." Wanna run on FULL BLAST? Smash that Join us button.',
-				button: 'Join us'
+				button: 'Get on board'
 			}
 		},
 
@@ -98,11 +102,22 @@ const translations = {
 					label: 'Your email', 
 					placeholder: 'Enter your email'
 				},
+				phone: {
+					label: 'Your phone',
+					placeholder: 'Enter your phone'
+				},
+				telegram: {
+					label: 'Your telegram id',
+					placeholder: 'Enter your telegram'
+				},
 				message: {
 					label: 'Message',
 					placeholder: 'Tell us about yourself and your goals'
 				},
-				submit: 'Send Message'
+				submit: 'Send Message',
+				validation: {
+					required: 'This field is required'
+				}
 			}
 		}
 	},
@@ -126,7 +141,10 @@ const translations = {
 		// Marquee
 		marquee: {
 			trafficWorldwide: 'Traffic worldwide',
-			killerResults: 'Killer Results '
+			killerResults: {
+				part1: 'Killer Results',
+				part2: 'Unlimited Traffic'
+			}
 		},
 
 		// Statistics
@@ -175,7 +193,8 @@ const translations = {
 					title: 'IT-инфраструктура',
 					text: 'Инфраструктура Baklajan растет вместе с проектами и готова к любым нагрузкам.'
 				}
-			}
+			},
+			text: 'Мы привлекаем пользователей, которые быстро окупаются и обеспечивают стабильный рост. Долгосрочная игра? Мы в деле — подбираем трафик, который подходит именно вам.'
 		},
 
 		// Contacts
@@ -204,11 +223,22 @@ const translations = {
 					label: 'Ваш email',
 					placeholder: 'Введите ваш email'
 				},
+				phone: {
+					label: 'Ваш телефон',
+					placeholder: 'Введите ваш телефон'
+				},
+				telegram: {
+					label: 'Ваш telegram',
+					placeholder: 'Введите ваш telegram'
+				},
 				message: {
 					label: 'Сообщение',
 					placeholder: 'Расскажите о себе и ваших целях'
 				},
-				submit: 'Отправить сообщение'
+				submit: 'Отправить сообщение',
+				validation: {
+					required: 'Это поле обязательно для заполнения'
+				}
 			}
 		}
 	}

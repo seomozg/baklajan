@@ -3,6 +3,7 @@ $white: #ffffff;
 $black: #0A0718;
 $dynamic-pink: #E856FF;
 $main-purple: #49115C;
+$background-purple: #1c0522;
 $main-toxic: #CBFE10;
 
 // Breakpoints
@@ -11,3 +12,96 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 $breakpoint-2xl: 1536px;
+
+// Типографика - Заголовки
+// Миксины для текстовых стилей
+@mixin h1 {
+    font-size: $h1-mobile;
+    line-height: $line-height-heading;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $h1-tablet;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+        font-size: $h1-desktop;
+    }
+}
+
+@mixin h2 {
+    font-size: $h2-mobile;
+    line-height: $line-height-heading;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $h2-tablet;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+        font-size: $h2-desktop;
+    }
+}
+
+@mixin h3 {
+    font-size: $h3-mobile;
+    line-height: $line-height-heading;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $h3-tablet;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+        font-size: $h3-desktop;
+    }
+}
+
+@mixin text-large {
+    font-size: $text-large-mobile;
+    line-height: $line-height-text;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $text-large-tablet;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+        font-size: $text-large-desktop;
+    }
+}
+
+@mixin text-small {
+    font-size: $text-small-mobile;
+    line-height: $line-height-text;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $text-small-tablet;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+        font-size: $text-small-desktop;
+    }
+}
+
+// Переменные для размеров
+$h1-desktop: 52px;
+$h1-tablet: 42px;
+$h1-mobile: 32px;
+
+$h2-desktop: 40px;
+$h2-tablet: 32px;
+$h2-mobile: 24px;
+
+$h3-desktop: 28px;
+$h3-tablet: 24px;
+$h3-mobile: 20px;
+
+// Типографика - Текст
+$text-large-desktop: 20px;
+$text-large-tablet: 18px;
+$text-large-mobile: 16px;
+
+$text-small-desktop: 16px;
+$text-small-tablet: 14px;
+$text-small-mobile: 14px;
+
+// Межстрочные интервалы
+$line-height-heading: 1.2;
+$line-height-text: 1.5;

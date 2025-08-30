@@ -6,9 +6,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
 import { useTranslation } from '../../hooks/useTranslation';
-import useAnimation from '../../hooks/useAnimation';
+import { useRef } from 'react';
 
 const About = () => {
+	const swiperRef = useRef(null);
 	const { t } = useTranslation();
 	
 	const CreativeIcon = () => (
@@ -44,72 +45,77 @@ const About = () => {
 		</svg>
 	);
 
-	const titleAnimation = useAnimation({ delay: 100 });
-	const swiperAnimation = useAnimation({ delay: 300 });
-
 	return (
 		<section className="about">
 			<div className="container">
 				<div className="about__content">
-					<h2 
-						ref={titleAnimation.ref}
-						className={`about__title about-title ${titleAnimation.isVisible ? 'visible' : ''}`}
-					>
+					<h2 className="about__title about-title">
 						<span className="accent-block accent-block--yellow">{t('about.title.part1')}</span>
 						<br/>
 						{t('about.title.part2')}
 					</h2>
 
-					<div 
-						ref={swiperAnimation.ref}
-						className={`about__swiper-container about-swiper ${swiperAnimation.isVisible ? 'visible' : ''}`}
+					<Swiper
+						modules={[Autoplay, EffectCards]}
+						spaceBetween={30}
+						slidesPerView={1}
+						autoplay={{
+							delay: 4000,
+							disableOnInteraction: false,
+						}}
+						effect="cards"
+						cardsEffect={{
+							slideShadows: false,
+							transformEl: '.about__item-inner',
+						}}
+						className="about__swiper"
+						onSwiper={(swiper) => {
+							swiperRef.current = swiper;
+						}}
 					>
-						<Swiper
-							modules={[Autoplay, EffectCards]}
-							spaceBetween={30}
-							slidesPerView={1}
-							autoplay={{
-								delay: 4000,
-								disableOnInteraction: false,
-							}}
-							effect="cards"
-							cardsEffect={{
-								slideShadows: false,
-								transformEl: '.about__item-inner',
-							}}
-							className="about__swiper"
-						>
-							<SwiperSlide>
-								<div className="about__item">
-									<div className="about__item-inner">
-										<CreativeIcon />
-										<h3 className="about__heading">{t('about.cards.creative.title')}</h3>
-										<p className="about__text">{t('about.cards.creative.text')}</p>
-									</div>
+						<SwiperSlide>
+							<div
+								className="about__item"
+								onClick={() => swiperRef.current?.slideNext()}
+							>
+								<div className="about__item-inner">
+									<CreativeIcon />
+									<h3 className="about__heading">{t('about.cards.creative.title')}</h3>
+									<p className="about__text">{t('about.cards.creative.text')}</p>
 								</div>
-							</SwiperSlide>
+							</div>
+						</SwiperSlide>
 
-							<SwiperSlide>
-								<div className="about__item">
-									<div className="about__item-inner">
-										<AutomationIcon />
-										<h3 className="about__heading">{t('about.cards.automation.title')}</h3>
-										<p className="about__text">{t('about.cards.automation.text')}</p>
-									</div>
+						<SwiperSlide>
+							<div
+								className="about__item"
+								onClick={() => swiperRef.current?.slideNext()}
+							>
+								<div className="about__item-inner">
+									<AutomationIcon />
+									<h3 className="about__heading">{t('about.cards.automation.title')}</h3>
+									<p className="about__text">{t('about.cards.automation.text')}</p>
 								</div>
-							</SwiperSlide>
+							</div>
+						</SwiperSlide>
 
-							<SwiperSlide>
-								<div className="about__item">
-									<div className="about__item-inner">
-										<ITIcon />
-										<h3 className="about__heading">{t('about.cards.itEcosystem.title')}</h3>
-										<p className="about__text">{t('about.cards.itEcosystem.text')}</p>
-									</div>
+						<SwiperSlide>
+							<div
+								className="about__item"
+								onClick={() => swiperRef.current?.slideNext()}
+							>
+								<div className="about__item-inner">
+									<ITIcon />
+									<h3 className="about__heading">{t('about.cards.itEcosystem.title')}</h3>
+									<p className="about__text">{t('about.cards.itEcosystem.text')}</p>
 								</div>
-							</SwiperSlide>
-						</Swiper>
-					</div>
+							</div>
+						</SwiperSlide>
+					</Swiper>
+
+					<p className="about__paragraph">
+						{t('about.text')}
+					</p>
 				</div>
 			</div>
 		</section>

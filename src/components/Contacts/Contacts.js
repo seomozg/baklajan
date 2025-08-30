@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import './Contacts.scss';
 import { useTranslation } from '../../hooks/useTranslation';
-import useAnimation from '../../hooks/useAnimation';
-
 const Contacts = () => {
 	const { t } = useTranslation();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
+		phone: '',
+		telegram: '',
 		text: ''
 	});
+	
+	const [errors, setErrors] = useState({});
 
 	const openModal = () => {
 		setIsModalOpen(true);
@@ -20,7 +22,8 @@ const Contacts = () => {
 	const closeModal = () => {
 		setIsModalOpen(false);
 		document.body.style.overflow = 'unset';
-		setFormData({ name: '', email: '', text: '' });
+		setFormData({ name: '', email: '', phone: '', telegram: '', text: '' });
+		setErrors({});
 	};
 
 	const handleInputChange = (e) => {
@@ -31,57 +34,78 @@ const Contacts = () => {
 		}));
 	};
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		// Здесь можно добавить логику отправки формы
-		console.log('Form submitted:', formData);
-		closeModal();
+	const validateForm = () => {
+		const newErrors = {};
+		const errorMessage = t('modal.form.validation.required');
+		
+		if (!formData.name.trim()) {
+			newErrors.name = errorMessage;
+		}
+		
+		if (!formData.email.trim()) {
+			newErrors.email = errorMessage;
+		}
+		
+		if (!formData.phone.trim()) {
+			newErrors.phone = errorMessage;
+		}
+		
+		if (!formData.telegram.trim()) {
+			newErrors.telegram = errorMessage;
+		}
+		
+		if (!formData.text.trim()) {
+			newErrors.text = errorMessage;
+		}
+		
+		setErrors(newErrors);
+		return Object.keys(newErrors).length === 0;
 	};
 
-	const item1Animation = useAnimation({ delay: 100 });
-	const item2Animation = useAnimation({ delay: 300 });
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		
+		if (validateForm()) {
+			// Здесь можно добавить логику отправки формы
+			console.log('Form submitted:', formData);
+			closeModal();
+		}
+	};
 
 	return (
 		<>
 			<section className="contacts" id="join">
 				<div className="container">
 					<div className="contacts__content">
-						<div 
-							ref={item1Animation.ref}
-							className={`contacts__item contact-item ${item1Animation.isVisible ? 'visible' : ''}`}
-						>
+						<div className="contacts__item contact-item">
 							<h2 className="contacts__title">{t('contacts.advertisers.title')}</h2>
 							<p className="contacts__text">
 								{t('contacts.advertisers.text')}
 							</p>
-							<button onClick={openModal}>{t('contacts.advertisers.button')}</button>
+							<button className="accent-block accent-block--yellow contacts__btn" onClick={openModal}>{t('contacts.advertisers.button')}</button>
 						</div>
 
-						<div 
-							ref={item2Animation.ref}
-							className={`contacts__item contact-item ${item2Animation.isVisible ? 'visible' : ''}`}
-						>
+						<div className="contacts__item contact-item">
 							<h2 className="contacts__title">{t('contacts.mediaBuyers.title')}</h2>
 							<p className="contacts__text">
 								{t('contacts.mediaBuyers.text')}
 							</p>
-							<button onClick={openModal}>{t('contacts.mediaBuyers.button')}</button>
+							<button className="accent-block accent-block--pink contacts__btn" onClick={openModal}>{t('contacts.mediaBuyers.button')}</button>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/* Модальное окно */}
 			{isModalOpen && (
-				<div className="modal-overlay" onClick={closeModal}>
-					<div className="modal-content" onClick={(e) => e.stopPropagation()}>
-						<button className="modal-close" onClick={closeModal}>
+				<div className="modal__overlay" onClick={closeModal}>
+					<div className="modal__content" onClick={(e) => e.stopPropagation()}>
+						<button className="modal__close" onClick={closeModal}>
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
 								<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
 							</svg>
 						</button>
 						
-						<h2 className="modal-title">{t('modal.title')}</h2>
+						<h2 className="modal__title">{t('modal.title')}</h2>
 						
 						<form className="modal-form" onSubmit={handleSubmit}>
 							<div className="form-group">
@@ -92,9 +116,9 @@ const Contacts = () => {
 									name="name"
 									value={formData.name}
 									onChange={handleInputChange}
-									required
 									placeholder={t('modal.form.name.placeholder')}
 								/>
+								{errors.name && <span className="form-error">{errors.name}</span>}
 							</div>
 
 							<div className="form-group">
@@ -105,9 +129,35 @@ const Contacts = () => {
 									name="email"
 									value={formData.email}
 									onChange={handleInputChange}
-									required
 									placeholder={t('modal.form.email.placeholder')}
 								/>
+								{errors.email && <span className="form-error">{errors.email}</span>}
+							</div>
+
+							<div className="form-group">
+								<label htmlFor="phone">{t('modal.form.phone.label')}</label>
+								<input
+									type="tel"
+									id="phone"
+									name="phone"
+									value={formData.phone}
+									onChange={handleInputChange}
+									placeholder={t('modal.form.phone.placeholder')}
+								/>
+								{errors.phone && <span className="form-error">{errors.phone}</span>}
+							</div>
+
+							<div className="form-group">
+								<label htmlFor="telegram">{t('modal.form.telegram.label')}</label>
+								<input
+									type="text"
+									id="telegram"
+									name="telegram"
+									value={formData.telegram}
+									onChange={handleInputChange}
+									placeholder={t('modal.form.telegram.placeholder')}
+								/>
+								{errors.telegram && <span className="form-error">{errors.telegram}</span>}
 							</div>
 
 							<div className="form-group">
@@ -117,10 +167,10 @@ const Contacts = () => {
 									name="text"
 									value={formData.text}
 									onChange={handleInputChange}
-									required
 									placeholder={t('modal.form.message.placeholder')}
 									rows="4"
 								/>
+								{errors.text && <span className="form-error">{errors.text}</span>}
 							</div>
 
 							<button type="submit" className="submit-button">

@@ -19,18 +19,8 @@
 	top: 0;
 	left: 0;
 	padding: 10px 0;
-	//background: linear-gradient(
-	//								90deg,
-	//								rgba($black, 0.95) 0%,
-	//								rgba($main-purple, 0.95) 50%,
-	//								rgba($black, 0.95) 100%
-	//);
-	//background-size: 200% 100%;
-	//animation: gradientBg 15s ease infinite;
-	backdrop-filter: blur(10px);
-	border-bottom: 1px solid rgba($dynamic-pink, 0.1);
+	background-color: $background-purple;
 	z-index: 100;
-	//transition: all 0.3s ease;
 
 	@media (min-width: $breakpoint-md) {
 		padding: 20px 0;
@@ -60,19 +50,6 @@
 
 		&:hover {
 			transform: scale(1.05);
-		}
-
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: -10px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 80%;
-			height: 10px;
-			background: $dynamic-pink;
-			filter: blur(20px);
-			opacity: 0.5;
 		}
 
 		& img {
@@ -156,7 +133,6 @@
 			font-size: 18px;
 			cursor: pointer;
 			transition: all 0.3s ease;
-			text-shadow: 0 0 10px rgba($dynamic-pink, 0.5);
 
 			&:hover {
 				color: $main-toxic;
@@ -173,6 +149,7 @@
 			border-color: transparent;
 			background-color: transparent;
 			font-family: $font-primary;
+			font-size: 18px;
 			color: $white;
 			cursor: pointer;
 

@@ -3,7 +3,6 @@ import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Marquee from './components/Marquee/Marquee';
 import Statistics from './components/Statistics/Statistics';
-import Statistics2 from './components/Statistics2/Statistics2';
 import About from "./components/About/About";
 import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
@@ -20,12 +19,11 @@ function App() {
         <main>
           <Hero />
 
-          <Marquee content="trafficWorldwide" />
+          <Marquee content="killerResults" />
 
           <Statistics />
-          <Statistics2 />
 
-          <Marquee content="killerResults" />
+          <Marquee content="trafficWorldwide" />
 
           <About/>
 

@@ -2,9 +2,12 @@
 @import '../../styles/fonts';
 
 .statistics {
+	opacity: 1;
 	padding-block: 40px;
+	height: calc(100vh - var(--header-height) - var(--marquee-height));
+	min-height: fit-content;
 
-	@media (min-width: $breakpoint-lg) {
+	@media (min-width: $breakpoint-xl) {
 		padding-block: 60px;
 	}
 
@@ -12,24 +15,21 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		min-height: calc(100vh - var(--header-height));
+		min-height: calc(100vh - var(--header-height) - var(--marquee-height));
 	}
 
 	&__title {
+		@include h1;
+
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		font-size: 32px;
+		font-family: $font-accent;
+		font-weight: 900;
 		line-height: 1.1;
-
-		@media (min-width: $breakpoint-md) {
-			font-size: 42px;
-		}
-
-		@media (min-width: $breakpoint-lg) {
-			font-size: 52px;
-		}
+		text-transform: uppercase;
+		letter-spacing: 1px;
 
 		& span {
 			&:nth-child(1) {
@@ -83,17 +83,8 @@
 		padding: 30px 25px;
 		text-align: center;
 		overflow: hidden;
-		background: $black;
+		background: $background-purple;
 		border: 1px solid #b3ff00;
-		transition: all 0.3s ease;
-
-		&:hover {
-			transform: translateY(-5px);
-			border-color: #ccff33;
-			box-shadow: 0 0 25px rgba(179, 255, 0, 0.4),
-			0 0 50px rgba(179, 255, 0, 0.2),
-			0 15px 35px rgba(0, 0, 0, 0.4);
-		}
 
 		@media (min-width: $breakpoint-md) {
 			padding: 20px 10px;
@@ -125,66 +116,38 @@
 	}
 
 	&__number {
+		@include h2;
+
+		margin-bottom: 12px;
 		font-family: $font-accent;
 		font-weight: 900;
-		font-size: 40px;
-		line-height: 1;
 		color: $main-toxic;
-		margin-bottom: 12px;
-		text-shadow: 0 0 10px rgba(179, 255, 0, 0.5);
-		position: relative;
-		z-index: 2;
 		text-transform: uppercase;
-		letter-spacing: 1px;
 
 		@media (min-width: $breakpoint-md) {
-			font-size: 42px;
 			margin-bottom: 16px;
-		}
-
-		@media (min-width: $breakpoint-lg) {
-			font-size: 48px;
-			margin-bottom: 20px;
-			letter-spacing: 2px;
 		}
 	}
 
 	&__description {
+		@include text-large;
+
 		font-family: $font-primary;
 		font-weight: 600;
-		font-size: 16px;
-		line-height: 1;
+		line-height: 1.5;
 		color: $white;
-		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-		position: relative;
-		z-index: 2;
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
-
-		@media (min-width: $breakpoint-lg) {
-			font-size: 20px;
-			letter-spacing: 1px;
-		}
 	}
 
 	&__text {
+		@include text-large;
+
 		text-align: center;
-		font-size: 14px;
-		line-height: 1.5;
 		color: $white;
 		max-width: 600px;
 		margin: 0 auto;
-		font-weight: 500;
+		font-weight: 600;
+		line-height: 1.5;
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
-
-		@media (min-width: $breakpoint-md) {
-			font-size: 16px;
-		}
-
-		@media (min-width: $breakpoint-lg) {
-			font-size: 18px;
-			letter-spacing: 1px;
-		}
 	}
 }
