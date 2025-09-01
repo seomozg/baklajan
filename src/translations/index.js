@@ -73,7 +73,7 @@ const translations = {
 					text: 'In-house infra that grows like yeast dough: fast, flexible, battle-tested. Ready for any traffic storm'
 				}
 			},
-			text: 'We drive the kind of users that pay off fast and keep the growth rolling. Long game? We’re in — tailoring traffic that fits you'
+			text: 'We cook traffic that pays back fast and keeps the fire on. Hungry for the long game? We’ll season the traffic to your taste'
 		},
 
 		// Contacts
