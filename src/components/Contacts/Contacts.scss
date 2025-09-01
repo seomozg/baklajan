@@ -27,16 +27,8 @@
 		flex-direction: column;
 		padding: 40px 30px;
 		background: $background-purple;
-		border: 1px solid $main-toxic;
+		border: 1px solid $dynamic-pink;
 		overflow: hidden;
-
-		&:nth-child(2) {
-			border-color: $dynamic-pink;
-
-			& .contacts__title {
-				color: $dynamic-pink;
-			}
-		}
 	}
 
 	&__title {
@@ -44,7 +36,7 @@
 
 		font-family: $font-accent;
 		font-weight: 900;
-		color: $main-toxic;
+		color: $dynamic-pink;
 		text-transform: uppercase;
 		margin-bottom: 24px;
 	}

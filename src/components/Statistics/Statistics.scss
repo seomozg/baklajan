@@ -33,24 +33,24 @@
 
 		& span {
 			&:nth-child(1) {
-				margin-left: -20px;
+				margin-left: -30px;
 
 				@media (min-width: $breakpoint-md) {
-					margin-left: -30px;
+					margin-left: -40px;
 				}
 				@media (min-width: $breakpoint-lg) {
-					margin-left: -40px;
+					margin-left: -50px;
 				}
 			}
 
 			&:nth-child(2) {
-				margin-right: -17px;
+				margin-right: -56px;
 
 				@media (min-width: $breakpoint-md) {
-					margin-right: -20px;
+					margin-right: -70px;
 				}
 				@media (min-width: $breakpoint-lg) {
-					margin-right: -23px;
+					margin-right: -84px;
 				}
 			}
 		}

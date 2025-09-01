@@ -14,7 +14,7 @@ const translations = {
 		hero: {
 			title: 'Juicy Media Buying',
 			subtitle: "We don't push campaigns –",
-			subtitleBreak: 'we push limits.'
+			subtitleBreak: 'we push limits'
 		},
 
 		// Marquee
@@ -62,18 +62,18 @@ const translations = {
 			cards: {
 				creative: {
 					title: 'Creative',
-					text: 'We don\'t "make ads." We roast ideas until they hit.'
+					text: 'We don\'t "make ads." We roast ideas until they hit'
 				},
 				automation: {
 					title: 'Automation', 
-					text: 'Our stack doesn\'t just optimize. It squeezes traffic dry and scales until the graph breaks out of the screen.'
+					text: 'Our stack doesn\'t just optimize. It squeezes traffic dry and scales until the graph breaks out of the screen'
 				},
 				itEcosystem: {
 					title: 'IT-ecosystem',
-					text: 'In-house infra that grows like yeast dough: fast, flexible, battle-tested. Ready for any traffic storm.'
+					text: 'In-house infra that grows like yeast dough: fast, flexible, battle-tested. Ready for any traffic storm'
 				}
 			},
-			text: 'We drive the kind of users that pay off fast and keep the growth rolling. Long game? We’re in — tailoring traffic that fits you.'
+			text: 'We drive the kind of users that pay off fast and keep the growth rolling. Long game? We’re in — tailoring traffic that fits you'
 		},
 
 		// Contacts
@@ -85,7 +85,7 @@ const translations = {
 			},
 			mediaBuyers: {
 				title: 'MEDIA BUYERS AND TEAMS',
-				text: 'You bring the drive, we bring the kitchen: infra, tools, and know-how to take your growth from "raw" to "well-done." Wanna run on FULL BLAST? Smash that Join us button.',
+				text: 'You bring the drive, we bring the kitchen: infra, tools, and know-how to take your growth from "raw" to "well-done." Wanna run on FULL BLAST? Smash that button.',
 				button: 'Get on board'
 			}
 		},
@@ -183,18 +183,18 @@ const translations = {
 			cards: {
 				creative: {
 					title: 'Креатив',
-					text: 'Делаем рекламу, которая выделяется и конвертит.'
+					text: 'Делаем рекламу, которая выделяется и конвертит'
 				},
 				automation: {
 					title: 'Автоматизация',
-					text: 'Наши инструменты выжимают максимум и масштабируют кампании на полную.'
+					text: 'Наши инструменты выжимают максимум и масштабируют кампании на полную'
 				},
 				itEcosystem: {
 					title: 'IT-инфраструктура',
-					text: 'Инфраструктура Baklajan растет вместе с проектами и готова к любым нагрузкам.'
+					text: 'Инфраструктура Baklajan растет вместе с проектами и готова к любым нагрузкам'
 				}
 			},
-			text: 'Мы привлекаем пользователей, которые быстро окупаются и обеспечивают стабильный рост. Долгосрочная игра? Мы в деле — подбираем трафик, который подходит именно вам.'
+			text: 'Мы привлекаем пользователей, которые быстро окупаются и обеспечивают стабильный рост. Долгосрочная игра? Мы в деле — подбираем трафик, который подходит именно вам'
 		},
 
 		// Contacts

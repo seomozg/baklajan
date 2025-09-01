@@ -82,7 +82,7 @@ const Contacts = () => {
 							<p className="contacts__text">
 								{t('contacts.advertisers.text')}
 							</p>
-							<button className="accent-block accent-block--yellow contacts__btn" onClick={openModal}>{t('contacts.advertisers.button')}</button>
+							<button className="accent-block accent-block--pink contacts__btn" onClick={openModal}>{t('contacts.advertisers.button')}</button>
 						</div>
 
 						<div className="contacts__item contact-item">

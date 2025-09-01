@@ -31,13 +31,6 @@
 		font-family: $font-accent;
 		font-weight: 900;
 		font-size: 18px;
-
-		&:nth-child(2n) {
-			color: $main-toxic;
-		}
-
-		&:nth-child(2n+1) {
-			color: $dynamic-pink;
-		}
+		color: $main-toxic;
 	}
 }

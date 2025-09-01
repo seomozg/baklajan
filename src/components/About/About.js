@@ -55,6 +55,7 @@ const About = () => {
 						{t('about.title.part2')}
 					</h2>
 
+					<div className="about__swiper-wrapper">
 					<Swiper
 						modules={[Autoplay, EffectCards]}
 						spaceBetween={30}
@@ -112,6 +113,7 @@ const About = () => {
 							</div>
 						</SwiperSlide>
 					</Swiper>
+					</div>
 
 					<p className="about__paragraph">
 						{t('about.text')}

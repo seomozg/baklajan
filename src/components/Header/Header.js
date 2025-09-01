@@ -79,7 +79,7 @@ const Header = () => {
 						</ul>
 					</nav>
 
-					<div className="header__actions">
+					{/* <div className="header__actions">
 						<button
 							className={` ${language === 'en' ? 'accent-block accent-block--pink active' : ''}`}
 							onClick={() => changeLanguage('en')}
@@ -92,7 +92,7 @@ const Header = () => {
 						>
 							RU
 						</button>
-					</div>
+					</div> */}
 
 					<button
 						className={`header__burger ${isMobileMenuOpen ? 'header__burger--open' : ''}`}

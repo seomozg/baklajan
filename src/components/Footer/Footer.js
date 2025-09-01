@@ -9,16 +9,16 @@ const Footer = () => {
 					<img src="/images/logos/logo-colorful.png" alt="Logo" className="footer__logo" />
 
 					<div className="footer__list">
-						<a href="#" className="footer__link">
+						<a href="https://t.me/baklajan_buying" target="_blank" className="footer__link">
 							TELEGRAM
 						</a>
-						<a href="#" className="footer__link">
+						<a href="https://www.instagram.com/baklajan.buying" target="_blank" className="footer__link">
 							INSTAGRAM
 						</a>
-						<a href="#" className="footer__link">
+						<a href="https://www.linkedin.com/company/baklajan/" target="_blank" className="footer__link">
 							LINKEDIN
 						</a>
-						<a href="#" className="footer__link">
+						<a href="https://t.me/baklajancoop_bot" target="_blank" className="footer__link">
 							HR-BOT
 						</a>
 					</div>
