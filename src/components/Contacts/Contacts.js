@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Contacts.scss';
 import { useTranslation } from '../../hooks/useTranslation';
+import emailjs from 'emailjs-com';
 const Contacts = () => {
 	const { t } = useTranslation();
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -62,11 +63,24 @@ const Contacts = () => {
 		return Object.keys(newErrors).length === 0;
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		
 		if (validateForm()) {
-			// Здесь можно добавить логику отправки формы
+			// send
+			 emailjs.send(
+				'service_dyg0sbp', // Замените на ваш Service ID
+				'template_g7a2tyd', // Замените на ваш Template ID
+				formData,
+				'aCGuA9pukeGXZZ1p7' // Замените на ваш Public Key
+				)
+				.then((result) => {
+				console.log('Email успешно отправлен!', result.text);
+				/* setSubmitStatus('success'); */
+				})
+				.catch((error) => {
+				console.error('Ошибка отправки:', error.text);
+				})
 			console.log('Form submitted:', formData);
 			closeModal();
 		}
