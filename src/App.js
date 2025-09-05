@@ -5,6 +5,7 @@ import Marquee from './components/Marquee/Marquee';
 import Statistics from './components/Statistics/Statistics';
 import About from "./components/About/About";
 import Contacts from "./components/Contacts/Contacts";
+import Career from "./components/Career/Career";
 import Footer from "./components/Footer/Footer";
 import { TranslationProvider } from './contexts/TranslationContext';
 
@@ -28,6 +29,10 @@ function App() {
           <About/>
 
           <Contacts />
+
+          <Marquee content="join" />
+
+          <Career />
         </main>
 
         <Footer />

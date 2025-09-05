@@ -2,25 +2,28 @@
 @import '../../styles/fonts';
 
 .about {
+	--padding-height: 40px;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	opacity: 1;
-	padding-block: 40px;
-	height: calc(100vh - var(--header-height));
+	padding-block: var(--padding-height);
+	height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2);
 	min-height: fit-content;
 	overflow: hidden;
 
 	@media (min-width: $breakpoint-xl) {
-		padding-block: 60px;
+		--padding-height: 60px;
 	}
 
 	&__content {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		gap: 60px;
-		position: relative;
+		min-height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2);
 		z-index: 2;
 
 		@media (min-width: $breakpoint-md) {
@@ -34,13 +37,8 @@
 	&__title {
 		@include h1;
 
-		font-family: $font-accent;
-		font-weight: 900;
-		line-height: 1.1;
 		color: $white;
 		text-align: center;
-		text-transform: uppercase;
-		letter-spacing: 1px;
 
 		@media (min-width: $breakpoint-md) {
 			width: 50%;
@@ -110,9 +108,6 @@
 		@include h2;
 
 		margin-bottom: 12px;
-		font-family: $font-accent;
-		font-weight: 900;
-		text-transform: uppercase;
 		flex-shrink: 0;
 		color: $main-toxic;
 
@@ -128,9 +123,6 @@
 		color: $white;
 		max-width: 600px;
 		margin: 0 auto;
-		font-weight: 600;
-		line-height: 1.5;
-		text-transform: uppercase;
 	}
 
 	&__paragraph {
@@ -140,8 +132,5 @@
 		color: $white;
 		max-width: 600px;
 		margin: 0 auto;
-		font-weight: 600;
-		line-height: 1.5;
-		text-transform: uppercase;
 	}
 }

@@ -16,68 +16,82 @@ $breakpoint-2xl: 1536px;
 // Типографика - Заголовки
 // Миксины для текстовых стилей
 @mixin h1 {
-    font-size: $h1-mobile;
-    line-height: $line-height-heading;
+	font-family: $font-accent;
+	font-size: $h1-mobile;
+	line-height: 1.1;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 
-    @media (min-width: $breakpoint-md) {
-        font-size: $h1-tablet;
-    }
+	@media (min-width: $breakpoint-md) {
+		font-size: $h1-tablet;
+	}
 
-    @media (min-width: $breakpoint-xl) {
-        font-size: $h1-desktop;
-    }
+	@media (min-width: $breakpoint-xl) {
+		font-size: $h1-desktop;
+	}
 }
 
 @mixin h2 {
-    font-size: $h2-mobile;
-    line-height: $line-height-heading;
+	font-family: $font-accent;
+	font-size: $h2-mobile;
+	line-height: $line-height-heading;
+	font-weight: 900;
+	text-transform: uppercase;
 
-    @media (min-width: $breakpoint-md) {
-        font-size: $h2-tablet;
-    }
+	@media (min-width: $breakpoint-md) {
+		font-size: $h2-tablet;
+	}
 
-    @media (min-width: $breakpoint-xl) {
-        font-size: $h2-desktop;
-    }
+	@media (min-width: $breakpoint-xl) {
+		font-size: $h2-desktop;
+	}
 }
 
 @mixin h3 {
-    font-size: $h3-mobile;
-    line-height: $line-height-heading;
+	font-family: $font-accent;
+	font-size: $h3-mobile;
+	line-height: $line-height-heading;
+	font-weight: 900;
+	text-transform: uppercase;
 
-    @media (min-width: $breakpoint-md) {
-        font-size: $h3-tablet;
-    }
+	@media (min-width: $breakpoint-md) {
+		font-size: $h3-tablet;
+	}
 
-    @media (min-width: $breakpoint-xl) {
-        font-size: $h3-desktop;
-    }
+	@media (min-width: $breakpoint-xl) {
+		font-size: $h3-desktop;
+	}
 }
 
 @mixin text-large {
-    font-size: $text-large-mobile;
-    line-height: $line-height-text;
+	font-family: $font-primary;
+	font-size: $text-large-mobile;
+	font-weight: 600;
+	line-height: 1.5;
+	text-transform: uppercase;
 
-    @media (min-width: $breakpoint-md) {
-        font-size: $text-large-tablet;
-    }
+	@media (min-width: $breakpoint-md) {
+		font-size: $text-large-tablet;
+	}
 
-    @media (min-width: $breakpoint-xl) {
-        font-size: $text-large-desktop;
-    }
+	@media (min-width: $breakpoint-xl) {
+		font-size: $text-large-desktop;
+	}
 }
 
 @mixin text-small {
-    font-size: $text-small-mobile;
-    line-height: $line-height-text;
+	font-family: $font-primary;
+	font-size: $text-small-mobile;
+	line-height: $line-height-text;
 
-    @media (min-width: $breakpoint-md) {
-        font-size: $text-small-tablet;
-    }
+	@media (min-width: $breakpoint-md) {
+		font-size: $text-small-tablet;
+	}
 
-    @media (min-width: $breakpoint-xl) {
-        font-size: $text-small-desktop;
-    }
+	@media (min-width: $breakpoint-xl) {
+		font-size: $text-small-desktop;
+	}
 }
 
 // Переменные для размеров

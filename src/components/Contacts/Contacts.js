@@ -91,12 +91,17 @@ const Contacts = () => {
 			<section className="contacts" id="join">
 				<div className="container">
 					<div className="contacts__content">
+						<h2 className="contacts__heading">
+							{t('contacts.title.part1')}
+							<br/>
+							<span className="accent-block accent-block--pink">{t('contacts.title.part2')}</span>
+						</h2>
 						<div className="contacts__item contact-item">
 							<h2 className="contacts__title">{t('contacts.advertisers.title')}</h2>
 							<p className="contacts__text">
 								{t('contacts.advertisers.text')}
 							</p>
-							<button className="accent-block accent-block--pink contacts__btn" onClick={openModal}>{t('contacts.advertisers.button')}</button>
+							<button className="accent-block accent-block--yellow contacts__btn" onClick={openModal}>{t('contacts.advertisers.button')}</button>
 						</div>
 
 						<div className="contacts__item contact-item">
@@ -104,7 +109,7 @@ const Contacts = () => {
 							<p className="contacts__text">
 								{t('contacts.mediaBuyers.text')}
 							</p>
-							<button className="accent-block accent-block--pink contacts__btn" onClick={openModal}>{t('contacts.mediaBuyers.button')}</button>
+							<button className="accent-block accent-block--yellow contacts__btn" onClick={openModal}>{t('contacts.mediaBuyers.button')}</button>
 						</div>
 					</div>
 				</div>

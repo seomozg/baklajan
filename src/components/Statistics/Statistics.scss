@@ -2,20 +2,22 @@
 @import '../../styles/fonts';
 
 .statistics {
+	--padding-height: 40px;
+
 	opacity: 1;
-	padding-block: 40px;
-	height: calc(100vh - var(--header-height) - var(--marquee-height));
+	padding-block: var(--padding-height);
+	height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2);
 	min-height: fit-content;
 
 	@media (min-width: $breakpoint-xl) {
-		padding-block: 60px;
+		--padding-height: 60px;
 	}
 
 	&__content {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		min-height: calc(100vh - var(--header-height) - var(--marquee-height));
+		min-height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2);
 	}
 
 	&__title {
@@ -25,11 +27,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		font-family: $font-accent;
-		font-weight: 900;
-		line-height: 1.1;
-		text-transform: uppercase;
-		letter-spacing: 1px;
 
 		& span {
 			&:nth-child(1) {
@@ -119,10 +116,7 @@
 		@include h2;
 
 		margin-bottom: 12px;
-		font-family: $font-accent;
-		font-weight: 900;
 		color: $main-toxic;
-		text-transform: uppercase;
 
 		@media (min-width: $breakpoint-md) {
 			margin-bottom: 16px;
@@ -132,11 +126,7 @@
 	&__description {
 		@include text-large;
 
-		font-family: $font-primary;
-		font-weight: 600;
-		line-height: 1.5;
 		color: $white;
-		text-transform: uppercase;
 	}
 
 	&__text {
@@ -146,8 +136,5 @@
 		color: $white;
 		max-width: 600px;
 		margin: 0 auto;
-		font-weight: 600;
-		line-height: 1.5;
-		text-transform: uppercase;
 	}
 }
