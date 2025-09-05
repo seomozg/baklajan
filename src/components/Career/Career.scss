@@ -1,0 +1,443 @@
+@import '../../styles/variables';
+@import '../../styles/fonts';
+
+.career {
+	--padding-height: 40px;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	opacity: 1;
+	padding-block: 40px;
+	height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 375px);
+	min-height: fit-content;
+	overflow: hidden;
+
+	@media (min-width: $breakpoint-xl) {
+		--padding-height: 60px;
+		height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 259px);
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 30px;
+		z-index: 2;
+
+		@media (min-width: $breakpoint-md) {
+			grid-template-columns: 1fr 1fr;
+			gap: 40px;
+		}
+	}
+
+	&__title {
+		@include h1;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: $white;
+		text-align: center;
+
+		& .accent-block {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__swiper {
+		width: 100%;
+
+		.swiper-slide {
+			height: auto;
+			width: 100%;
+		}
+
+		.swiper-pagination.swiper-pagination-bullets {
+			bottom: 45px;
+			position: relative;
+			margin-top: 20px;
+		}
+
+		.swiper-pagination-bullet {
+			width: 12px;
+			height: 12px;
+			background-color: rgba($main-toxic, 0.3);
+			opacity: 1;
+			transition: .3s ease;
+
+			&:hover {
+				background-color: rgba($main-toxic, 0.6);
+			}
+		}
+
+		.swiper-pagination-bullet-active {
+			background-color: $main-toxic;
+		}
+	}
+}
+
+.career-list {
+	&__item {
+		&:not(:first-child) {
+			margin-top: -1px;
+		}
+	}
+
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		padding: 20px 0;
+		cursor: pointer;
+		border-top: 1px solid $main-toxic;
+		border-bottom: 1px solid $main-toxic;
+		transition: .3s ease;
+
+		&:hover {
+			border-color: $dynamic-pink;
+
+			& .career-list__heading {
+				color: $dynamic-pink;
+			}
+
+			& .career-list__btn svg {
+				stroke: $dynamic-pink;
+			}
+		}
+	}
+
+	&__heading {
+		@include h2;
+
+		max-width: calc(100% - 48px - 20px);
+		flex-shrink: 0;
+		color: $main-toxic;
+		transition: .3s ease;
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 48px;
+		background-color: transparent;
+		border: none;
+
+		& svg {
+			stroke: $main-toxic;
+			transition: .3s ease;
+		}
+	}
+}
+
+// Стили модального окна
+.career-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1000;
+	animation: fadeIn 0.3s ease;
+}
+
+.career-modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	max-width: 600px;
+	height: 100%;
+	background-color: $black;
+	z-index: 1001;
+	display: flex;
+	flex-direction: column;
+	animation: slideInRight 0.4s ease;
+	box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+
+	@media (min-width: $breakpoint-md) {
+		max-width: 700px;
+	}
+
+	@media (min-width: $breakpoint-xl) {
+		max-width: 1000px;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding: 30px;
+		border-bottom: 1px solid $main-toxic;
+		flex-shrink: 0;
+	}
+
+	&__title {
+		@include h2;
+
+		color: $main-toxic;
+		margin: 0;
+		padding-right: 20px;
+	}
+
+	&__close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background-color: transparent;
+		border: none;
+		color: $main-toxic;
+		cursor: pointer;
+		transition: .3s ease;
+		flex-shrink: 0;
+
+		&:hover {
+			color: $dynamic-pink;
+			transform: scale(1.1);
+		}
+
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	&__content {
+		flex: 1;
+		overflow-y: auto;
+		padding: 30px;
+
+		// Кастомный скроллбар
+		&::-webkit-scrollbar {
+			width: 8px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: $black;
+			border-radius: 4px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: $main-toxic;
+			border-radius: 4px;
+			transition: background-color 0.3s ease;
+
+			&:hover {
+				background: $dynamic-pink;
+			}
+		}
+		scrollbar-width: thin;
+		scrollbar-color: $main-toxic $black;
+	}
+
+	&__text {
+		@include text-large;
+
+		color: $white;
+		margin-bottom: 30px;
+
+		&:last-of-type {
+			margin-bottom: 40px;
+		}
+
+		b, strong, a {
+			font-weight: bold;
+			color: $main-toxic;
+		}
+
+		i, em {
+			font-style: italic;
+		}
+
+		u {
+			text-decoration: underline;
+		}
+	}
+
+	&__block {
+		margin-bottom: 30px;
+
+		&:last-of-type {
+			margin-bottom: 40px;
+		}
+	}
+
+	&__block-title {
+		@include h3;
+
+		margin-bottom: 15px;
+		margin-top: 0;
+		color: $dynamic-pink;
+	}
+
+	&__list {
+		list-style: circle;
+		padding-left: 20px;
+		margin: 0;
+	}
+
+	&__list-item {
+		@include text-large;
+
+		color: $white;
+		margin-bottom: 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		// Поддержка HTML-тегов в списках
+		b, strong {
+			font-weight: bold;
+			color: $main-toxic;
+		}
+
+		i, em {
+			font-style: italic;
+		}
+
+		u {
+			text-decoration: underline;
+		}
+	}
+
+	&__contact {
+		@include h3;
+
+		margin-top: 24px;
+		margin-left: 10px;
+		color: $black;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		z-index: 2;
+
+		&::before {
+			transition: .3s ease;
+		}
+
+		&:hover::before {
+			transform: rotate(0) skew(20deg);
+		}
+	}
+
+	// Стили формы в модальном окне
+	&__form {
+		margin-top: 30px;
+		padding-top: 30px;
+		border-top: 1px solid $main-toxic;
+	}
+
+	&__form-title {
+		@include h3;
+
+		color: $dynamic-pink;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	&__form-group {
+		margin-bottom: 20px;
+	}
+
+	&__form-label {
+		@include text-small;
+
+		display: block;
+		color: $white;
+		margin-bottom: 8px;
+		font-weight: 500;
+	}
+
+	&__form-input,
+	&__form-textarea {
+		width: 100%;
+		padding: 12px 16px;
+		border: 1px solid $main-toxic;
+		border-radius: 6px;
+		background-color: transparent;
+		color: $white;
+		font-size: 16px;
+		transition: .3s ease;
+
+		&::placeholder {
+			color: rgba($white, 0.6);
+		}
+
+		&:focus {
+			outline: none;
+			border-color: $dynamic-pink;
+			box-shadow: 0 0 0 2px rgba($dynamic-pink, 0.2);
+		}
+
+		&.error {
+			border-color: #ff4757;
+		}
+	}
+
+	&__form-textarea {
+		resize: vertical;
+		min-height: 100px;
+	}
+
+	&__form-error {
+		@include text-small;
+
+		color: #ff4757;
+		margin-top: 4px;
+		display: block;
+	}
+
+	&__form-submit {
+		@include h3;
+
+		margin-top: 24px;
+		margin-left: 10px;
+		color: $black;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		z-index: 2;
+
+		&::before {
+			transition: all .3s ease;
+		}
+
+		&:hover {
+			&::before {
+				transform: rotate(0) skew(20deg);
+			}
+		}
+
+		&:disabled {
+			opacity: 0.6;
+			cursor: not-allowed;
+			transform: none;
+		}
+	}
+}
+
+// Анимации
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}

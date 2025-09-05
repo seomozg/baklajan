@@ -65,14 +65,10 @@
 	}
 
 	&__text {
-
 		@include h3;
 
-		font-family: $font-accent;
-		font-weight: 900;
-		color: $main-toxic;
-		text-transform: uppercase;
 		position: relative;
+		color: $main-toxic;
 	}
 
 	&__logo {

@@ -5,8 +5,9 @@ const translations = {
 		header: {
 			navigation: {
 				about: 'About',
-				joinUs: 'Join us', 
-				contacts: 'Contacts'
+				joinUs: 'Join us',
+				contacts: 'Contacts',
+				career: 'Career',
 			}
 		},
 
@@ -19,11 +20,12 @@ const translations = {
 
 		// Marquee
 		marquee: {
-			trafficWorldwide: 'Traffic worldwide',
+			trafficWorldwide: 'Traffic Worldwide',
 			killerResults: {
 				part1: 'Killer Results',
 				part2: 'Unlimited Traffic'
-			}
+			},
+			join: 'New Roles Unlocked',
 		},
 
 		// Statistics
@@ -65,7 +67,7 @@ const translations = {
 					text: 'We don\'t "make ads." We roast ideas until they hit'
 				},
 				automation: {
-					title: 'Automation', 
+					title: 'Automation',
 					text: 'Our stack doesn\'t just optimize. It squeezes traffic dry and scales until the graph breaks out of the screen'
 				},
 				itEcosystem: {
@@ -78,6 +80,10 @@ const translations = {
 
 		// Contacts
 		contacts: {
+			title: {
+				part1: 'We mix the sharpest skills',
+				part2: 'to serve maximum profit'
+			},
 			advertisers: {
 				title: 'ADVERTISERS',
 				text: 'Need high-quality traffic and leads that don\'t vanish overnight? We\'ve got the recipe – baked fresh, never half-cooked.',
@@ -99,7 +105,7 @@ const translations = {
 					placeholder: 'Enter your name'
 				},
 				email: {
-					label: 'Your email', 
+					label: 'Your email',
 					placeholder: 'Enter your email'
 				},
 				phone: {
@@ -119,7 +125,44 @@ const translations = {
 					required: 'This field is required'
 				}
 			}
-		}
+		},
+
+		// Career
+		career: {
+			title: {
+				part1: 'Join the',
+				part2: 'squad'
+			},
+			responsibilities: 'Responsibilities',
+			requirements: 'Requirements',
+			offer: 'We offer',
+			contactBtn: 'Contact us',
+			modal: {
+				title: 'Join us',
+				form: {
+					name: {
+						label: 'Your name',
+						placeholder: 'Enter your name'
+					},
+					email: {
+						label: 'Your email',
+						placeholder: 'Enter your email'
+					},
+					telegram: {
+						label: 'Your telegram id',
+						placeholder: 'Enter your telegram'
+					},
+					message: {
+						label: 'Message',
+						placeholder: 'Tell us about yourself and why do you want to join us'
+					},
+					submit: 'Send',
+					validation: {
+						required: 'This field is required'
+					}
+				}
+			},
+		},
 	},
 
 	ru: {
@@ -128,7 +171,8 @@ const translations = {
 			navigation: {
 				about: 'О нас',
 				joinUs: 'Присоединиться',
-				contacts: 'Контакты'
+				contacts: 'Контакты',
+				career: 'Карьера',
 			}
 		},
 
@@ -140,11 +184,12 @@ const translations = {
 
 		// Marquee
 		marquee: {
-			trafficWorldwide: 'Traffic worldwide',
+			trafficWorldwide: 'Traffic Worldwide',
 			killerResults: {
 				part1: 'Killer Results',
 				part2: 'Unlimited Traffic'
-			}
+			},
+			join: 'New Roles Unlocked',
 		},
 
 		// Statistics
@@ -156,7 +201,7 @@ const translations = {
 			items: {
 				years: {
 					number: '6 лет',
-					description: 'опыта и роста'
+					description: 'опыта и\u00A0роста'
 				},
 				verticals: {
 					number: '3 направления',
@@ -168,17 +213,17 @@ const translations = {
 				},
 				pros: {
 					number: '70+',
-					description: 'экспертов делают профит из идей'
+					description: 'экспертов делают профит из\u00A0идей'
 				}
 			},
-			text: 'За каждой цифрой – команда, которая тестит и креативит нон-стоп.'
+			text: 'За каждой цифрой\u00A0– команда, которая тестит и\u00A0креативит нон-стоп.'
 		},
 
 		// About
 		about: {
 			title: {
-				part1: 'Тумблер на',
-				part2: 'полной мощности'
+				part1: 'Тумблер',
+				part2: 'на полной мощности'
 			},
 			cards: {
 				creative: {
@@ -194,11 +239,15 @@ const translations = {
 					text: 'Инфраструктура Baklajan растет вместе с проектами и готова к любым нагрузкам'
 				}
 			},
-			text: 'Мы привлекаем пользователей, которые быстро окупаются и обеспечивают стабильный рост. Долгосрочная игра? Мы в деле — подбираем трафик, который подходит именно вам'
+			text: 'Приводим пользователей, которые быстро окупаются и дают стабильный рост. Игра в долгую? Мы в деле – настроим трафик под ваш запрос.'
 		},
 
 		// Contacts
 		contacts: {
+			title: {
+				part1: 'We mix the sharpest skills',
+				part2: 'to serve maximum profit'
+			},
 			advertisers: {
 				title: 'Рекламодателям',
 				text: 'Ищешь квал трафик и реальные лиды? У нас есть подход к любой нише.',
@@ -240,7 +289,44 @@ const translations = {
 					required: 'Это поле обязательно для заполнения'
 				}
 			}
-		}
+		},
+
+		// Career
+		career: {
+			title: {
+				part1: 'Join the',
+				part2: 'squad'
+			},
+			responsibilities: 'Responsibilities',
+			requirements: 'Requirements',
+			offer: 'We offer',
+			contactBtn: 'Contact us',
+			modal: {
+				title: 'Join us',
+				form: {
+					name: {
+						label: 'Your name',
+						placeholder: 'Enter your name'
+					},
+					email: {
+						label: 'Your email',
+						placeholder: 'Enter your email'
+					},
+					telegram: {
+						label: 'Your telegram id',
+						placeholder: 'Enter your telegram'
+					},
+					message: {
+						label: 'Message',
+						placeholder: 'Tell us about yourself and why do you want to join us'
+					},
+					submit: 'Send',
+					validation: {
+						required: 'This field is required'
+					}
+				}
+			},
+		},
 	}
 };
 

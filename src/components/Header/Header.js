@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import './Header.scss';
 import useHeaderHeight from '../../hooks/useHeaderHeight';
-import { useTranslation } from '../../hooks/useTranslation';
+import {useTranslation} from '../../hooks/useTranslation';
 
 const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-	const { headerRef } = useHeaderHeight();
-	const { t, language, changeLanguage } = useTranslation();
+	const {headerRef} = useHeaderHeight();
+	const {t, language, changeLanguage} = useTranslation();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -71,6 +71,14 @@ const Header = () => {
 							<li className="header__nav-item">
 								<a
 									className="header__nav-link"
+									onClick={() => scrollToSection('career')}
+								>
+									{t('header.navigation.career')}
+								</a>
+							</li>
+							<li className="header__nav-item">
+								<a
+									className="header__nav-link"
 									onClick={() => scrollToSection('contacts')}
 								>
 									{t('header.navigation.contacts')}
@@ -79,7 +87,7 @@ const Header = () => {
 						</ul>
 					</nav>
 
-					{/* <div className="header__actions">
+					<div className="header__actions">
 						<button
 							className={` ${language === 'en' ? 'accent-block accent-block--pink active' : ''}`}
 							onClick={() => changeLanguage('en')}
@@ -92,7 +100,7 @@ const Header = () => {
 						>
 							RU
 						</button>
-					</div> */}
+					</div>
 
 					<button
 						className={`header__burger ${isMobileMenuOpen ? 'header__burger--open' : ''}`}

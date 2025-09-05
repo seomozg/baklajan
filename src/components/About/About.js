@@ -1,9 +1,7 @@
 import './About.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectCards } from 'swiper/modules';
+import { Autoplay, EffectCards } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useRef } from 'react';
