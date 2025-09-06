@@ -21,8 +21,6 @@
 	}
 
 	&__title {
-		@include h1;
-
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -127,14 +125,5 @@
 		@include text-large;
 
 		color: $white;
-	}
-
-	&__text {
-		@include text-large;
-
-		text-align: center;
-		color: $white;
-		max-width: 600px;
-		margin: 0 auto;
 	}
 }

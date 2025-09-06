@@ -34,17 +34,40 @@
 		display: flex;
 		align-items: center;
 		gap: 10px;
-		animation: marquee 20s linear infinite;
 		width: max-content;
 
 		@media (min-width: $breakpoint-md) {
 			gap: 20px;
-			animation-duration: 25s;
 		}
 
 		@media (min-width: $breakpoint-lg) {
 			gap: 30px;
-			animation-duration: 30s;
+		}
+
+		// Направление слева направо (по умолчанию)
+		&--left {
+			animation: marquee-left 20s linear infinite;
+
+			@media (min-width: $breakpoint-md) {
+				animation-duration: 25s;
+			}
+
+			@media (min-width: $breakpoint-lg) {
+				animation-duration: 30s;
+			}
+		}
+
+		// Направление справа налево  
+		&--right {
+			animation: marquee-right 20s linear infinite;
+
+			@media (min-width: $breakpoint-md) {
+				animation-duration: 25s;
+			}
+
+			@media (min-width: $breakpoint-lg) {
+				animation-duration: 30s;
+			}
 		}
 	}
 
@@ -86,11 +109,22 @@
 	}
 }
 
-@keyframes marquee {
+// Анимация слева направо (стандартное направление)
+@keyframes marquee-left {
 	0% {
 		transform: translateX(0);
 	}
 	100% {
 		transform: translateX(-50%);
+	}
+}
+
+// Анимация справа налево (обратное направление)  
+@keyframes marquee-right {
+	0% {
+		transform: translateX(-50%);
+	}
+	100% {
+		transform: translateX(0);
 	}
 }

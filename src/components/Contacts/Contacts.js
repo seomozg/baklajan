@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import './Contacts.scss';
-import { useTranslation } from '../../hooks/useTranslation';
-import emailjs from 'emailjs-com';
+import {useTranslation} from '../../hooks/useTranslation';
+
 const Contacts = () => {
-	const { t } = useTranslation();
+	const {t} = useTranslation();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [formData, setFormData] = useState({
 		name: '',
@@ -12,7 +12,7 @@ const Contacts = () => {
 		telegram: '',
 		text: ''
 	});
-	
+
 	const [errors, setErrors] = useState({});
 
 	const openModal = () => {
@@ -23,12 +23,12 @@ const Contacts = () => {
 	const closeModal = () => {
 		setIsModalOpen(false);
 		document.body.style.overflow = 'unset';
-		setFormData({ name: '', email: '', phone: '', telegram: '', text: '' });
+		setFormData({name: '', email: '', phone: '', telegram: '', text: ''});
 		setErrors({});
 	};
 
 	const handleInputChange = (e) => {
-		const { name, value } = e.target;
+		const {name, value} = e.target;
 		setFormData(prev => ({
 			...prev,
 			[name]: value
@@ -38,49 +38,36 @@ const Contacts = () => {
 	const validateForm = () => {
 		const newErrors = {};
 		const errorMessage = t('modal.form.validation.required');
-		
+
 		if (!formData.name.trim()) {
 			newErrors.name = errorMessage;
 		}
-		
+
 		if (!formData.email.trim()) {
 			newErrors.email = errorMessage;
 		}
-		
+
 		if (!formData.phone.trim()) {
 			newErrors.phone = errorMessage;
 		}
-		
+
 		if (!formData.telegram.trim()) {
 			newErrors.telegram = errorMessage;
 		}
-		
+
 		if (!formData.text.trim()) {
 			newErrors.text = errorMessage;
 		}
-		
+
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		
+
 		if (validateForm()) {
 			// send
-			 emailjs.send(
-				'service_dyg0sbp', // Замените на ваш Service ID
-				'template_g7a2tyd', // Замените на ваш Template ID
-				formData,
-				'aCGuA9pukeGXZZ1p7' // Замените на ваш Public Key
-				)
-				.then((result) => {
-				console.log('Email успешно отправлен!', result.text);
-				/* setSubmitStatus('success'); */
-				})
-				.catch((error) => {
-				console.error('Ошибка отправки:', error.text);
-				})
 			console.log('Form submitted:', formData);
 			closeModal();
 		}
@@ -96,21 +83,16 @@ const Contacts = () => {
 							<br/>
 							<span className="accent-block accent-block--pink">{t('contacts.title.part2')}</span>
 						</h2>
-						<div className="contacts__item contact-item">
-							<h2 className="contacts__title">{t('contacts.advertisers.title')}</h2>
-							<p className="contacts__text">
-								{t('contacts.advertisers.text')}
-							</p>
-							<button className="accent-block accent-block--yellow contacts__btn" onClick={openModal}>{t('contacts.advertisers.button')}</button>
-						</div>
-
-						<div className="contacts__item contact-item">
-							<h2 className="contacts__title">{t('contacts.mediaBuyers.title')}</h2>
-							<p className="contacts__text">
-								{t('contacts.mediaBuyers.text')}
-							</p>
-							<button className="accent-block accent-block--yellow contacts__btn" onClick={openModal}>{t('contacts.mediaBuyers.button')}</button>
-						</div>
+						{t('contacts.cards').map((card, index) => (
+							<div className="contacts__item contact-item" key={index}>
+								<h2 className="contacts__title">{card.title}</h2>
+								<p className="contacts__text">
+									{card.text}
+								</p>
+								<button className="accent-block accent-block--yellow contacts__btn"
+								        onClick={openModal}>{card.button}</button>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>
@@ -123,9 +105,9 @@ const Contacts = () => {
 								<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
 							</svg>
 						</button>
-						
+
 						<h2 className="modal__title">{t('modal.title')}</h2>
-						
+
 						<form className="modal-form" onSubmit={handleSubmit}>
 							<div className="form-group">
 								<label htmlFor="name">{t('modal.form.name.label')}</label>

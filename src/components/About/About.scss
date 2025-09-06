@@ -35,8 +35,6 @@
 	}
 
 	&__title {
-		@include h1;
-
 		color: $white;
 		text-align: center;
 
@@ -95,12 +93,16 @@
 		height: 80px;
 		position: relative;
 		z-index: 2;
-		color: $main-toxic;
 
 		@media (min-width: $breakpoint-lg) {
 			margin-bottom: 30px;
 			width: 100px;
 			height: 100px;
+		}
+
+		& svg {
+			color: $main-toxic;
+			fill: transparent;
 		}
 	}
 
@@ -123,14 +125,6 @@
 		color: $white;
 		max-width: 600px;
 		margin: 0 auto;
-	}
-
-	&__paragraph {
-		@include text-large;
-
-		text-align: center;
-		color: $white;
-		max-width: 600px;
-		margin: 0 auto;
+		white-space: pre-line;
 	}
 }
