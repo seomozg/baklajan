@@ -24,7 +24,7 @@ function App() {
 
           <Statistics />
 
-          <Marquee content="trafficWorldwide" />
+          <Marquee content="trafficWorldwide"  direction="right"/>
 
           <About/>
 

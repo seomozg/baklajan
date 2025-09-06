@@ -2,7 +2,7 @@ import './Marquee.scss';
 import { useTranslation } from '../../hooks/useTranslation';
 import useMarqueeHeight from "../../hooks/useMarqueeHeight";
 
-const Marquee = ({ content = "trafficWorldwide" }) => {
+const Marquee = ({ content = "trafficWorldwide", direction = "left" }) => {
 	const { marqueeRef } = useMarqueeHeight();
 	const { t } = useTranslation();
 	
@@ -57,7 +57,7 @@ const Marquee = ({ content = "trafficWorldwide" }) => {
 			ref={marqueeRef}
 			className="marquee"
 		>
-			<div className="marquee__track">
+			<div className={`marquee__track marquee__track--${direction}`}>
 				<div className="marquee__content">
 					<MarqueeContent />
 				</div>

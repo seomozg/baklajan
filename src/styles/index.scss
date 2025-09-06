@@ -3,24 +3,24 @@
 
 // Базовые стили
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
 	position: relative;
-  font-family: $font-primary;
-  font-size: 16px;
-  line-height: 1.6;
-  color: $white;
-  background-color: $black;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: $font-primary;
+	font-size: 16px;
+	line-height: 1.6;
+	color: $white;
+	background-color: $black;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 }
 
@@ -32,23 +32,23 @@ body {
 	width: 100vw;
 	height: 100vh;
 	background: url("../../public/images/patterns/pattern1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-repeat: no-repeat;
+	background-size: cover;
 	z-index: -10;
 }
 
 .container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 12px;
-  
-  @media (min-width: $breakpoint-sm) {
-    padding: 0 14px;
-  }
-  
-  @media (min-width: $breakpoint-lg) {
-    padding: 0 26px;
-  }
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0 12px;
+
+	@media (min-width: $breakpoint-sm) {
+		padding: 0 14px;
+	}
+
+	@media (min-width: $breakpoint-lg) {
+		padding: 0 26px;
+	}
 }
 
 
@@ -61,13 +61,13 @@ body {
 
 	&::before {
 		content: "";
-    position: absolute;
+		position: absolute;
 		top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    z-index: -1;
-    transform: rotate(0) skew(-20deg);
+		left: -10%;
+		width: 120%;
+		height: 120%;
+		z-index: -1;
+		transform: rotate(0) skew(-20deg);
 	}
 
 	&--yellow {
@@ -83,6 +83,39 @@ body {
 
 		&::before {
 			background-color: $dynamic-pink;
+		}
+	}
+}
+
+.section {
+	&-title {
+		@include h1;
+	}
+
+	&-paragraph {
+		@include text-large;
+
+		text-align: center;
+		color: $white;
+		max-width: 750px;
+		margin: 0 auto;
+	}
+}
+
+.swiper {
+	& .swiper-pagination-bullet {
+		width: 12px;
+		height: 12px;
+		background-color: rgba($main-toxic, 0.3);
+		opacity: 1;
+		transition: .3s ease;
+
+		&:hover {
+			background-color: $main-toxic;
+		}
+
+		&.swiper-pagination-bullet-active {
+			background-color: $main-toxic;
 		}
 	}
 }
