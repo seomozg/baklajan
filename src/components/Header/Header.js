@@ -87,20 +87,20 @@ const Header = () => {
 						</ul>
 					</nav>
 
-					<div className="header__actions">
-						<button
-							className={` ${language === 'en' ? 'accent-block accent-block--pink active' : ''}`}
-							onClick={() => changeLanguage('en')}
-						>
-							EN
-						</button>
-						<button
-							className={`${language === 'ru' ? 'accent-block accent-block--pink active' : ''}`}
-							onClick={() => changeLanguage('ru')}
-						>
-							RU
-						</button>
-					</div>
+					{/*<div className="header__actions">*/}
+					{/*	<button*/}
+					{/*		className={` ${language === 'en' ? 'accent-block accent-block--pink active' : ''}`}*/}
+					{/*		onClick={() => changeLanguage('en')}*/}
+					{/*	>*/}
+					{/*		EN*/}
+					{/*	</button>*/}
+					{/*	<button*/}
+					{/*		className={`${language === 'ru' ? 'accent-block accent-block--pink active' : ''}`}*/}
+					{/*		onClick={() => changeLanguage('ru')}*/}
+					{/*	>*/}
+					{/*		RU*/}
+					{/*	</button>*/}
+					{/*</div>*/}
 
 					<button
 						className={`header__burger ${isMobileMenuOpen ? 'header__burger--open' : ''}`}

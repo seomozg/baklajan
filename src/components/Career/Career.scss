@@ -10,20 +10,20 @@
 	justify-content: center;
 	opacity: 1;
 	padding-block: 40px;
-	height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 375px);
+	height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 315px);
 	min-height: fit-content;
 	overflow: hidden;
 
 	@media (min-width: $breakpoint-xl) {
 		--padding-height: 60px;
-		height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 259px);
+		height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 199px);
 	}
 
 	&__content {
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 30px;
-		min-height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 375px);;
+		min-height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 315px);;
 		z-index: 2;
 
 		@media (min-width: $breakpoint-md) {
@@ -32,7 +32,7 @@
 		}
 
 		@media (min-width: $breakpoint-xl) {
-			min-height: calc(100vh - var(--header-height) - var(--marquee-height) - 340px);
+			min-height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2 - 199px);
 		}
 	}
 
@@ -78,7 +78,7 @@
 		display: flex;
 		justify-content: space-between;
 		gap: 20px;
-		padding: 20px 0;
+		padding: 14px 0;
 		cursor: pointer;
 		border-top: 1px solid $main-toxic;
 		border-bottom: 1px solid $main-toxic;
