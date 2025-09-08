@@ -30,59 +30,6 @@
     "additionalText": "<b>Want to join us?</b><br/>Send your application below — let's discuss the details!"
   },
   {
-    "id": 2,
-    "title": "Content Manager",
-    "description": "The <b>Secret Traffic</b> team is expanding and looking for an experienced <b>Content Manager</b> to work remotely. We're growing and strengthening our team, so we're seeking strong candidates ready to dive into projects and grow with us.",
-    "responsibilities": [
-      "Manage and grow Telegram channels",
-      "Create, edit, and publish engaging content tailored to different regions",
-      "Work with Telegram bots (Fleep bot, Controllet bot, Junction bot)",
-      "Monitor performance and ensure timely posting",
-      "Collaborate with the team to align content with strategy"
-    ],
-    "requirements": [
-      "1+ year of experience managing Telegram channels",
-      "Experience working with regions: Europe, India, Latin America",
-      "Skills in working with Telegram bots (Fleep bot, Controllet bot, Junction bot)",
-      "English level B2 or higher",
-      "Willingness to grow, earn, and work in a team",
-      "Experience with Captions, CapCut, ChatGPT, ElevenLabs is a plus",
-      "Portfolio or samples of previous work is a plus"
-    ],
-    "offer": [
-      "Friendly team with onboarding and adaptation to our workflow",
-      "Remote schedule (10:00–19:00)",
-      "Opportunity for salary growth based on performance",
-      "Fixed salary + bonuses"
-    ],
-    "additionalText": "<b>Important:</b> A short test assignment will be part of the final selection stage. <br/><br/> <b>Want to join us?</b><br/>Send your application below — let's discuss the details!"
-  },
-  {
-    "id": 3,
-    "title": "Checker | QCC",
-    "description": "The <b>Secret Traffic</b> team is looking for an experienced <b>Checker</b> to join us remotely.",
-    "responsibilities": [
-      "Monitor the quality of processing in the sales department",
-      "Record and document violations in processing",
-      "Provide timely reporting",
-      "Respond quickly to messages and tasks during the workday"
-    ],
-    "requirements": [
-      "Solid background in the vertical and understanding of industry specifics",
-      "Responsibility, goal orientation, and result-driven mindset",
-      "English level B2 or higher",
-      "Motivation to earn, grow professionally, and work as part of a team"
-    ],
-    "offer": [
-      "Fully remote format (schedule: 08:00–21:00, 6/1)",
-      "Fixed salary (discussed after the interview)",
-      "Stable payments in USDT once a month (2 payments in the first month for a smooth start)",
-      "Automated processes via CRM",
-      "Work in a team with established infrastructure"
-    ],
-    "additionalText": "<b>Want to join us?</b><br/>Send your application below — let's discuss the details!"
-  },
-  {
     "id": 4,
     "title": "Retention Manager / Handler of Scheme Traffic for Repeat Deposits (RD)",
     "description": "The <b>Secret Traffic</b> team is looking for an experienced <b>RD traffic handler</b> for repeat deposits.",
@@ -128,7 +75,7 @@
       "Creative mindset and initiative"
     ],
     "offer": [
-      "Remote work, flexible schedule",
+      "Remote work, 10:00–18:00 (Cyprus time)",
       "Salary starting from $800 (negotiable based on experience and portfolio)",
       "Engaging tasks with the opportunity to influence final results"
     ],
