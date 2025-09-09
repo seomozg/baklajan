@@ -7,34 +7,36 @@ import About from "./components/About/About";
 import Contacts from "./components/Contacts/Contacts";
 import Career from "./components/Career/Career";
 import Footer from "./components/Footer/Footer";
+import AdminPanel from "./components/Admin/Admin";
 import { TranslationProvider } from './contexts/TranslationContext';
 
 import './App.scss';
 
 function App() {
+  const isAdmin = window.location.pathname === '/admin';
   return (
     <TranslationProvider>
       <div className="App">
         <Header />
+          {isAdmin ? <AdminPanel /> : 
+            <main>
+              <Hero />
 
-          <main>
-            <Hero />
+              <Marquee content="killerResults" />
 
-            <Marquee content="killerResults" />
+              <Statistics />
 
-            <Statistics />
+              <Marquee content="trafficWorldwide"  direction="right"/>
 
-            <Marquee content="trafficWorldwide"  direction="right"/>
+              <About/>
 
-            <About/>
+              <Contacts />
 
-            <Contacts />
+              <Marquee content="join" />
 
-            <Marquee content="join" />
-
-            <Career />
-          </main>
-
+              <Career />
+            </main>
+          }
         <Footer />
 
         <div className="pattern"></div>

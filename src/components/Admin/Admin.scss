@@ -1,0 +1,269 @@
+@import '../../styles/variables';
+@import '../../styles/fonts';
+
+.admin {
+	--padding-height: 140px;
+
+	position: relative;
+	opacity: 1;
+	padding-block: var(--padding-height);
+	height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2);
+	min-height: fit-content;
+	overflow: hidden;
+
+	@media (min-width: $breakpoint-xl) {
+		--padding-height: 160px;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 20px;
+		min-height: calc(100vh - var(--header-height) - var(--marquee-height) - var(--padding-height) * 2);
+
+		@media (min-width: $breakpoint-lg) {
+			grid-template-columns: 1fr 1fr;
+			gap: 40px;
+		}
+
+		@media (min-width: $breakpoint-xl) {
+			gap: 60px;
+		}
+	}
+
+	&__heading {
+		@include h1;
+
+		margin: 0 auto 20px;
+		color: $white;
+		text-align: center;
+
+		@media (min-width: $breakpoint-md) {
+			margin-bottom: 40px;
+			width: 65%;
+		}
+
+		@media (min-width: $breakpoint-lg) {
+			grid-column: 1/3;
+			margin-bottom: 60px;
+		}
+
+		& .accent-block {
+			margin-top: 10px;
+		}
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		padding: 40px 30px;
+		background: $background-purple;
+		border: 1px solid $dynamic-pink;
+		overflow: hidden;
+	}
+
+	&__title {
+		@include h3;
+
+		margin-bottom: 24px;
+		color: $dynamic-pink;
+	}
+
+	&__text {
+		@include text-small;
+
+		color: $white;
+		margin-bottom: auto;
+		white-space: pre-wrap;
+	}
+
+	&__btn {
+		@include h3;
+
+		margin-top: 24px;
+		margin-left: 10px;
+		color: $black;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		z-index: 2;
+
+		&::before {
+			transition: all .3s ease;
+		}
+
+		&:hover {
+			&::before {
+				transform: rotate(0) skew(20deg);
+			}
+		}
+	}
+}
+
+// Стили для модального окна
+.modal {
+	&__overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.8);
+		backdrop-filter: blur(10px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 1000;
+		animation: fadeIn 0.3s ease-out;
+
+		@media (max-width: $breakpoint-sm) {
+			padding: 20px;
+		}
+	}
+
+	&__content {
+		background: $black;
+		padding: 30px 20px;
+		width: 100%;
+		max-width: 500px;
+		max-height: 90vh;
+		overflow-y: auto;
+		animation: slideIn 0.3s ease-out;
+	}
+
+	&__close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background: none;
+		border: none;
+		color: $white;
+		cursor: pointer;
+		padding: 5px;
+		transition: all 0.3s ease;
+
+		&:hover {
+			color: $main-toxic;
+		}
+	}
+
+	&__title {
+		@include h2;
+
+		margin-bottom: 12px;
+		color: $main-toxic;
+		text-align: center;
+
+		@media (min-width: $breakpoint-md) {
+			margin-bottom: 16px;
+		}
+	}
+}
+
+.modal-form {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	position: relative;
+	padding-top: 120px;
+
+	label {
+		font-family: $font-accent;
+		font-weight: 700;
+		font-size: 14px;
+		color: $white;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	input, textarea {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		padding: 15px 20px;
+		font-family: $font-primary;
+		font-size: 16px;
+		color: $white;
+		transition: all 0.3s ease;
+
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.5);
+		}
+
+		&:focus {
+			outline: none;
+			border-color: $main-toxic;
+			background: rgba(255, 255, 255, 0.08);
+			box-shadow: 0 0 0 3px rgba(203, 254, 16, 0.1);
+		}
+
+		&:hover {
+			border-color: rgba(255, 255, 255, 0.3);
+		}
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 100px;
+		font-family: $font-primary;
+	}
+
+	.form-error {
+		color: #ff4444;
+		font-size: 12px;
+		margin-top: 4px;
+	}
+}
+
+.submit-button {
+	background: $dynamic-pink;
+	color: $white;
+	border: none;
+	padding: 18px 40px;
+	font-family: $font-accent;
+	font-weight: 700;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.3s ease;
+	margin-top: 10px;
+
+	&:hover {
+		box-shadow: 0 10px 30px rgba(232, 86, 255, 0.3);
+	}
+
+	@media (max-width: $breakpoint-sm) {
+		padding: 16px 30px;
+		font-size: 14px;
+	}
+}
+
+// Анимации для модального окна
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-50px) scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
