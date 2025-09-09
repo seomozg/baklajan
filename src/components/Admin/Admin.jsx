@@ -78,7 +78,7 @@ export default function Admin() {
   return (
     <section className="admin">
 				<div className="container">
-    <div className="p-4 space-y-6">
+    <div>
       <h1 className="text-xl font-bold">Админка вакансий</h1>
 
       {jobs.map((job, index) => (
