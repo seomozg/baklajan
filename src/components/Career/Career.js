@@ -9,6 +9,7 @@ import {useState, useMemo} from 'react';
 import {useRef} from 'react';
 import jobsData from '../../data/jobs.json';
 import jobsRuData from '../../data/jobs-ru.json';
+import emailjs from 'emailjs-com';
 
 const Career = () => {
 	const {t} = useTranslation();
@@ -107,7 +108,19 @@ const Career = () => {
 			// await sendJobApplication(submitData);
 
 			// Показываем успешное сообщение
-			alert('Заявка успешно отправлена!');
+			emailjs.send(
+				'service_dyg0sbp',
+				'template_9rvamf7',
+				submitData,
+				'aCGuA9pukeGXZZ1p7'
+				)
+				.then((result) => {
+				console.log('Email успешно отправлен!', result.text);
+				})
+				.catch((error) => {
+				console.error('Ошибка отправки:', error.text);
+				});
+			//alert('Заявка успешно отправлена!');
 
 			// Закрываем форму
 			setShowForm(false);

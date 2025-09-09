@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import './Contacts.scss';
 import {useTranslation} from '../../hooks/useTranslation';
+import emailjs from 'emailjs-com';
 
 const Contacts = () => {
 	const {t} = useTranslation();
@@ -65,9 +66,20 @@ const Contacts = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
+		emailjs.send(
+			'service_dyg0sbp',
+			'template_g7a2tyd',
+			formData,
+			'aCGuA9pukeGXZZ1p7'
+			)
+			.then((result) => {
+			console.log('Email успешно отправлен!', result.text);
+			})
+			.catch((error) => {
+			console.error('Ошибка отправки:', error.text);
+			});
 		if (validateForm()) {
-			// send
+
 			console.log('Form submitted:', formData);
 			closeModal();
 		}
