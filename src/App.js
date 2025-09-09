@@ -18,7 +18,7 @@ function App() {
     <TranslationProvider>
       <div className="App">
         <Header />
-          {isAdmin ? <AdminPanel /> : 
+          {isAdmin ? <AdminPanel /> : false}
             <main>
               <Hero />
 
@@ -36,7 +36,6 @@ function App() {
 
               <Career />
             </main>
-          }
         <Footer />
 
         <div className="pattern"></div>
