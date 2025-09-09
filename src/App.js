@@ -17,23 +17,23 @@ function App() {
       <div className="App">
         <Header />
 
-        <main>
-          <Hero />
+          <main>
+            <Hero />
 
-          <Marquee content="killerResults" />
+            <Marquee content="killerResults" />
 
-          <Statistics />
+            <Statistics />
 
-          <Marquee content="trafficWorldwide"  direction="right"/>
+            <Marquee content="trafficWorldwide"  direction="right"/>
 
-          <About/>
+            <About/>
 
-          <Contacts />
+            <Contacts />
 
-          <Marquee content="join" />
+            <Marquee content="join" />
 
-          <Career />
-        </main>
+            <Career />
+          </main>
 
         <Footer />
 
