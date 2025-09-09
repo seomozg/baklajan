@@ -76,7 +76,7 @@ export default function Admin() {
   if (loading) return <p>Загрузка...</p>;
 
   return (
-    <section className="admin">
+    <section>
 				<div className="container">
     <div>
       <h1 className="text-xl font-bold">Админка вакансий</h1>
