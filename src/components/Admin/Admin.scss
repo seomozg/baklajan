@@ -96,3 +96,60 @@
 	}
 }
 
+.admin-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+	flex-wrap: wrap;
+	gap: 20px;
+
+	h1 {
+		font-family: $font-accent;
+		font-weight: 700;
+		font-size: 28px;
+		color: $white;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	@media (max-width: $breakpoint-sm) {
+		flex-direction: column;
+		align-items: stretch;
+	}
+}
+
+.language-switcher {
+	display: flex;
+	gap: 10px;
+
+	.lang-btn {
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		color: $white;
+		padding: 12px 20px;
+		font-family: $font-primary;
+		font-size: 14px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		border-radius: 8px;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.15);
+			border-color: rgba(255, 255, 255, 0.3);
+		}
+
+		&.active {
+			background: $main-toxic;
+			border-color: $main-toxic;
+			color: $black;
+			font-weight: 600;
+		}
+
+		@media (max-width: $breakpoint-sm) {
+			flex: 1;
+			text-align: center;
+		}
+	}
+}
+

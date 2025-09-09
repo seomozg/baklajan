@@ -2,22 +2,36 @@ import React, { useEffect, useState } from "react";
 import './Admin.scss';
 
 export default function Admin() {
-  const [jobs, setJobs] = useState([]);
+  const [allJobs, setAllJobs] = useState({ en: [], ru: [] });
+  const [currentLang, setCurrentLang] = useState('ru');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/content")
+    fetch("/api/content-all")
       .then(res => res.json())
       .then(data => {
-        setJobs(data);
+        setAllJobs(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Ошибка загрузки:', error);
         setLoading(false);
       });
   }, []);
 
+  const jobs = allJobs[currentLang] || [];
+
+  const updateCurrentJobs = (updatedJobs) => {
+    setAllJobs(prev => ({
+      ...prev,
+      [currentLang]: updatedJobs
+    }));
+  };
+
   const handleChange = (index, field, value) => {
     const updatedJobs = [...jobs];
     updatedJobs[index][field] = value;
-    setJobs(updatedJobs);
+    updateCurrentJobs(updatedJobs);
   };
 
   const handleArrayChange = (index, field, subIndex, value) => {
@@ -28,27 +42,44 @@ export default function Admin() {
     } else {
       updatedJobs[index][field][subIndex] = value;
     }
-    setJobs(updatedJobs);
+    updateCurrentJobs(updatedJobs);
   };
 
   const addArrayItem = (index, field) => {
     const updatedJobs = [...jobs];
     updatedJobs[index][field].push("");
-    setJobs(updatedJobs);
+    updateCurrentJobs(updatedJobs);
   };
 
   const save = () => {
-    const cleanedJobs = jobs.map(job => ({
+    // Очищаем текущие вакансии от пустых строк
+    const cleanedCurrentJobs = jobs.map(job => ({
       ...job,
       responsibilities: job.responsibilities.filter(item => item.trim() !== ""),
       requirements: job.requirements.filter(item => item.trim() !== ""),
       offer: job.offer.filter(item => item.trim() !== "")
     }));
 
-    fetch("http://localhost:4000/api/content", {
+    // Обновляем состояние с очищенными данными
+    const dataToSave = {
+      ...allJobs,
+      [currentLang]: cleanedCurrentJobs
+    };
+
+    fetch("/api/content-all", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(cleanedJobs, null, 2),
+      body: JSON.stringify(dataToSave, null, 2),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert(`✅ Вакансии сохранены успешно! (${data.message})`);
+        setAllJobs(dataToSave); // Обновляем локальное состояние
+      }
+    })
+    .catch(error => {
+      alert('❌ Ошибка при сохранении: ' + error.message);
     });
   };
 
@@ -63,13 +94,13 @@ export default function Admin() {
       additionalText: ""
     };
 
-    setJobs([...jobs, newJob]);
+    updateCurrentJobs([...jobs, newJob]);
   };
 
   const removeJob = (index) => {
     const updatedJobs = [...jobs];
     updatedJobs.splice(index, 1);
-    setJobs(updatedJobs);
+    updateCurrentJobs(updatedJobs);
   };
 
 
@@ -77,9 +108,26 @@ export default function Admin() {
 
   return (
     <section className="admin">
-				<div className="container">
+			<div className="container">
     <div>
-      <h1 className="text-xl font-bold">Админка вакансий</h1>
+      <div className="admin-header">
+        <h1 className="text-xl font-bold">Админка вакансий</h1>
+        
+        <div className="language-switcher">
+          <button 
+            className={`lang-btn ${currentLang === 'ru' ? 'active' : ''}`}
+            onClick={() => setCurrentLang('ru')}
+          >
+            🇷🇺 Русский ({allJobs.ru?.length || 0})
+          </button>
+          <button 
+            className={`lang-btn ${currentLang === 'en' ? 'active' : ''}`}
+            onClick={() => setCurrentLang('en')}
+          >
+            🇺🇸 English ({allJobs.en?.length || 0})
+          </button>
+        </div>
+      </div>
 
       {jobs.map((job, index) => (
         <div key={job.id} className="form-group">

@@ -14,11 +14,20 @@ import './App.scss';
 
 function App() {
   const isAdmin = window.location.pathname === '/admin';
+  
+  if (isAdmin) {
+    return (
+      <TranslationProvider>
+        <div className="App">
+          <AdminPanel />
+        </div>
+      </TranslationProvider>
+    );
+  }
+  
   return (
-    
     <TranslationProvider>
       <div className="App">
-        {isAdmin ? <AdminPanel /> : false}
         <Header />
             <main>
               <Hero />

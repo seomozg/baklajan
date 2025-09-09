@@ -7,9 +7,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "node src/server.js",
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "install-all": "npm install && echo 'Установка завершена! Запустите: npm run dev'"
   },
   "dependencies": {
+    "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "emailjs-com": "^3.2.0",
     "express": "^5.1.0",
@@ -19,6 +23,7 @@
     "swiper": "^11.2.10"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "sass": "^1.69.5"
   },
   "browserslist": {
