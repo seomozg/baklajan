@@ -30,7 +30,7 @@ const Career = () => {
 
 	useEffect(() => {
 		Papa.parse(
-		"https://docs.google.com/spreadsheets/d/e/2PACX-1vTZSMWuSVbde2kFfROpQobigw9sMIf1KugKs1cV1ZMgpadOfNvsu8FkCjU4XJuOCk4Lor77nwu8e9Q-/pub?gid=1748088280&single=true&output=csv",
+		"https://docs.google.com/spreadsheets/d/e/2PACX-1vQYiUxCKgujiZz_Iab0qpwVV9zkBvIUtVNWiSsOSa24ZijXP7zmWzYnw8OQn2_uh058toKYsKHyi7f6/pub?gid=0&single=true&output=csv",
 		{
 			download: true,
 			header: true,
