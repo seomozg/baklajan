@@ -5,11 +5,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import {useTranslation} from '../../hooks/useTranslation';
 import {useTranslationContext} from '../../contexts/TranslationContext';
-import {useState, useMemo} from 'react';
+import {useState, useMemo, useEffect} from 'react';
 import {useRef} from 'react';
-import jobsData from '../../data/jobs.json';
-import jobsRuData from '../../data/jobs-ru.json';
 import emailjs from 'emailjs-com';
+import Papa from "papaparse";
+
 
 const Career = () => {
 	const {t} = useTranslation();
@@ -26,9 +26,26 @@ const Career = () => {
 
 	const swiperRef = useRef(null);
 
-	const jobs = useMemo(() => {
-		return language === 'ru' ? jobsRuData : jobsData;
-	}, [language]);
+	const [jobs, setJobs] = useState([]);
+
+	useEffect(() => {
+		Papa.parse(
+		"https://docs.google.com/spreadsheets/d/e/2PACX-1vTZSMWuSVbde2kFfROpQobigw9sMIf1KugKs1cV1ZMgpadOfNvsu8FkCjU4XJuOCk4Lor77nwu8e9Q-/pub?gid=1748088280&single=true&output=csv",
+		{
+			download: true,
+			header: true,
+			complete: (results) => {
+			const data = results.data.map(job => ({
+				...job,
+				responsibilities: job.responsibilities?.split(";").map(s => s.trim()).filter(Boolean) || [],
+				requirements: job.requirements?.split(";").map(s => s.trim()).filter(Boolean) || [],
+				offer: job.offer?.split(";").map(s => s.trim()).filter(Boolean) || [],
+			}));
+			setJobs(data);
+			},
+		}
+		);
+	}, []);
 
 	const openModal = (jobIndex) => {
 		setSelectedJob(jobIndex);

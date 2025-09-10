@@ -7,18 +7,15 @@ import About from "./components/About/About";
 import Contacts from "./components/Contacts/Contacts";
 import Career from "./components/Career/Career";
 import Footer from "./components/Footer/Footer";
-import AdminPanel from "./components/Admin/Admin";
 import { TranslationProvider } from './contexts/TranslationContext';
 
 import './App.scss';
 
 function App() {
-  const isAdmin = window.location.pathname === '/admin';
   return (
     
     <TranslationProvider>
       <div className="App">
-        {isAdmin ? <AdminPanel /> : false}
         <Header />
             <main>
               <Hero />
