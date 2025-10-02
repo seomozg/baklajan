@@ -67,10 +67,10 @@ const Contacts = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		emailjs.send(
-			'service_dyg0sbp',
-			'template_g7a2tyd',
+			'service_eb2xlw6',
+			'template_iycjnjp',
 			formData,
-			'aCGuA9pukeGXZZ1p7'
+			'PTrS16Jds8P2uOYi9'
 			)
 			.then((result) => {
 			console.log('Email успешно отправлен!', result.text);

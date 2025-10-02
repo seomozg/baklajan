@@ -126,10 +126,10 @@ const Career = () => {
 
 			// Показываем успешное сообщение
 			emailjs.send(
-				'service_dyg0sbp',
-				'template_9rvamf7',
+				'service_eb2xlw6',
+				'template_3dpm63d',
 				submitData,
-				'aCGuA9pukeGXZZ1p7'
+				'PTrS16Jds8P2uOYi9'
 				)
 				.then((result) => {
 				console.log('Email успешно отправлен!', result.text);
