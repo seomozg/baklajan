@@ -20,7 +20,8 @@ const Career = () => {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
-		message: ''
+		telegram: '',
+		text: ''
 	});
 	const [errors, setErrors] = useState({});
 
@@ -56,7 +57,7 @@ const Career = () => {
 		setIsModalOpen(false);
 		setSelectedJob(null);
 		setShowForm(false);
-		setFormData({name: '', email: '', message: ''});
+		setFormData({name: '', email: '', telegram: '', text: ''});
 		setErrors({});
 	};
 
@@ -102,8 +103,12 @@ const Career = () => {
 			newErrors.email = language === 'ru' ? 'Введите корректный email' : 'Enter a valid email';
 		}
 
-		if (!formData.message.trim()) {
-			newErrors.message = t('career.modal.form.validation.required');
+		if (!formData.telegram.trim()) {
+			newErrors.telegram = t('career.modal.form.validation.required');
+		}
+
+		if (!formData.text.trim()) {
+			newErrors.text = t('career.modal.form.validation.required');
 		}
 
 		setErrors(newErrors);
@@ -141,7 +146,7 @@ const Career = () => {
 
 			// Закрываем форму
 			setShowForm(false);
-			setFormData({name: '', email: '', message: ''});
+			setFormData({name: '', email: '', telegram: '', text: ''});
 			setErrors({});
 		}
 	};
@@ -319,14 +324,14 @@ const Career = () => {
 										<label htmlFor="message"
 										       className="career-modal__form-label">{t('career.modal.form.message.label')}</label>
 										<textarea
-											id="message"
-											name="message"
-											value={formData.message}
+											id="text"
+											name="text"
+											value={formData.text}
 											onChange={handleInputChange}
 											placeholder={t('career.modal.form.message.placeholder')}
-											className={`career-modal__form-textarea ${errors.message ? 'error' : ''}`}
+											className={`career-modal__form-textarea ${errors.text ? 'error' : ''}`}
 										/>
-										{errors.message && <span className="career-modal__form-error">{errors.message}</span>}
+										{errors.text && <span className="career-modal__form-error">{errors.text}</span>}
 									</div>
 
 									<button type="submit" className="accent-block accent-block--yellow career-modal__form-submit">
